@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.venturetech.venture.butizon.Model.Model_Club;
 import com.venturetech.venture.butizon.Model.Update.UpadateProfilePicture;
 import com.venturetech.venture.butizon.Model.UserApp.Update.UserUpdate;
-import com.venturetech.venture.butizon.Model.UserModel;
 import com.venturetech.venture.butizon.R;
 import com.venturetech.venture.butizon.Utilities.RetrofitService.RetroInterface;
 import com.venturetech.venture.butizon.Utilities.RetrofitService.RetrofitInstance;
@@ -261,6 +259,9 @@ public class ClubProfile extends Fragment {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+            final Dialog progressBar = new Dialog(getActivity());
+            progressBar.setContentView(R.layout.progressdialogue);
+            progressBar.show();
             final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
             String encodedImage = encodeImage(selectedImage);
             HashMap<String, String> hashMap = new HashMap<>();
@@ -273,14 +274,16 @@ public class ClubProfile extends Fragment {
                 @Override
                 public void onResponse(Call<UpadateProfilePicture> call, Response<UpadateProfilePicture> response) {
                     if (response.body().getStatus() == 1) {
+                        progressBar.cancel();
                         Toast.makeText(getActivity(), "Profile photo updated", Toast.LENGTH_SHORT).show();
+                        RetrofitInterface.SetUserTables(getActivity());
                     }
 
                 }
 
                 @Override
                 public void onFailure(Call<UpadateProfilePicture> call, Throwable t) {
-
+                    progressBar.cancel();
                 }
             });
 

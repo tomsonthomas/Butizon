@@ -1,13 +1,12 @@
 package com.venturetech.venture.butizon.StartActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.venturetech.venture.butizon.R;
-import com.venturetech.venture.butizon.UserApp.FirstPage;
+
 
 public class SecondSliding extends AppCompatActivity {
     private ViewPager viewPager;
@@ -130,7 +129,7 @@ public class SecondSliding extends AppCompatActivity {
     private void launchHomeScreen() {
 //        prefManager.setFirstTimeLaunch(false);
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(SecondSliding.this, FirstPage.class));
+       // startActivity(new Intent(SecondSliding.this, FirstPage.class));
         finish();
     }
 

@@ -1,5 +1,6 @@
 package com.venturetech.venture.butizon.ClubApp;
 
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
@@ -17,8 +18,6 @@ import android.widget.Toast;
 import com.venturetech.venture.butizon.Model.ServiceClubRegister;
 import com.venturetech.venture.butizon.Model.ServiceUserRegister;
 import com.venturetech.venture.butizon.R;
-import com.venturetech.venture.butizon.UserLogin.UserActivity;
-import com.venturetech.venture.butizon.UserLogin.ShopRegister;
 import com.venturetech.venture.butizon.Utilities.RetrofitService.RetroInterface;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
@@ -154,6 +153,9 @@ l6=findViewById(R.id.lay6);
         regi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Dialog progressBar = new Dialog(Register.this);
+                progressBar.setContentView(R.layout.progressdialogue);
+                progressBar.show();
                 boolean flag = true;
                 uname = nam.getText().toString();
                  uemail = ema.getText().toString();
@@ -172,37 +174,44 @@ l6=findViewById(R.id.lay6);
                      {
                          nam.setError("name should contain atleast 3 characters");
                          flag= false;
+                         progressBar.cancel();
 
                      }
                      if (umobile!= null && umobile.length() < 10) {
                          mob.setError("Invalid mobile");
                          flag= false;
+                         progressBar.cancel();
                      }
                      if (ustreet!=null&&ustreet.length()<3)
                      {
                          street.setError(" street name should contain atleast 3 characters");
                          flag=false;
+                         progressBar.cancel();
                      }
 
                      if (ucity!=null&&ucity.length()<3)
                      {
                          city.setError("city name should contain atleast 3 characters");
                          flag=false;
+                         progressBar.cancel();
                      }
                      if (udistrict!=null&&udistrict.length()<3)
                      {
                          district.setError("district name should contain atleast 3 characters");
                          flag=false;
+                         progressBar.cancel();
                      }
                      if (ustate!=null&&ustate.length()<3)
                      {
                          state.setError("state name should contain atleast 3 characters");
                          flag=false;
+                         progressBar.cancel();
                      }
                      if (ucountry!=null&&ucountry.length()<3)
                      {
                          country.setError("country name should contain atleast 3 characters");
                          flag=false;
+                         progressBar.cancel();
                      }
 
                      if (isValidMail(ema.getText().toString())) {
@@ -210,6 +219,7 @@ l6=findViewById(R.id.lay6);
 
                      } else {
                          ema.setError("Invalid Email Id");
+                         progressBar.cancel();
                      }
                      if(DBTransactionFunctions.isEmailFound("tb_club","email",ema.getText().toString()))
                      {
@@ -218,13 +228,17 @@ l6=findViewById(R.id.lay6);
                      else
                          {
                          ema.setError("Email Id already exist");
-                         return;
+                             progressBar.cancel();
+
+                             return;
 
                      }
                      if (!isValidPassword( upass ))
                      {
                          pass.setError("password must contain integer,special characters, upper and lower case letters");
                          flag=false;
+                         progressBar.cancel();
+
                      }
 
                  }else {
@@ -232,11 +246,15 @@ l6=findViewById(R.id.lay6);
                      {
                          nam.setError("name should contain atleast 3 characters");
                          flag=false;
+                         progressBar.cancel();
+
                      }
                      if (umobile!= null && umobile.length() < 10)
                      {
                          mob.setError("Invalid mobile");
                          flag= false;
+                         progressBar.cancel();
+
                      }
 
 
@@ -244,11 +262,15 @@ l6=findViewById(R.id.lay6);
                      {
                          age.setError("please enter a valid age");
                          flag=false;
+                         progressBar.cancel();
+
                      }
                      if (uaddress!=null&&uaddress.length()<3 )
                      {
                          addr.setError("address should contain atleast 3 characters");
                          flag = false;
+                         progressBar.cancel();
+
                      }
 
                      if (isValidMail(ema.getText().toString())) {
@@ -257,6 +279,7 @@ l6=findViewById(R.id.lay6);
                      }
                      else
                          {
+                             progressBar.cancel();
 
                          ema.setError("Invalid Email Id");
                      }
@@ -266,6 +289,7 @@ l6=findViewById(R.id.lay6);
                          }
                          else{
                              ema.setError("Email Id already exist");
+                         progressBar.cancel();
 
                          }
 
@@ -300,6 +324,8 @@ l6=findViewById(R.id.lay6);
                             @Override
                             public void onResponse(Call<ServiceClubRegister> call, Response<ServiceClubRegister> response)
                             {
+                                progressBar.cancel();
+
                                 nam.setText("");
                                 ema.setText("");
                                 pass.setText("");
@@ -320,6 +346,7 @@ l6=findViewById(R.id.lay6);
 
                             @Override
                             public void onFailure(Call<ServiceClubRegister> call, Throwable t) {
+                                progressBar.cancel();
 
                             }
                         });
@@ -350,6 +377,7 @@ l6=findViewById(R.id.lay6);
                                 age.setText("");
                                 addr.setText("");
                                 mob.setText("");
+                                progressBar.cancel();
 
                                 Toast.makeText(getApplicationContext(), "User registration Successfull,Please use the email and password to login", Toast.LENGTH_LONG).show();
                                 Intent intent=new Intent(Register.this,ClubLogin.class);
@@ -359,6 +387,7 @@ l6=findViewById(R.id.lay6);
 
                             @Override
                             public void onFailure(Call<ServiceUserRegister> call, Throwable t) {
+                                progressBar.cancel();
 
                             }
                         });

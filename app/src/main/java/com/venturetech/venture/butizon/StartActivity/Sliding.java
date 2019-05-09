@@ -20,9 +20,6 @@ import android.widget.TextView;
 
 import com.venturetech.venture.butizon.ClubApp.ClubLogin;
 import com.venturetech.venture.butizon.R;
-import com.venturetech.venture.butizon.UserApp.FirstPage;
-import com.venturetech.venture.butizon.UserApp.UserFirst;
-import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
 public class Sliding extends AppCompatActivity {
 

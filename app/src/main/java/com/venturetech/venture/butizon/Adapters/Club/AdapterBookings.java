@@ -12,9 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.venturetech.venture.butizon.Adapters.User.AdapterAppointments;
 import com.venturetech.venture.butizon.Model.ModelClubAppointments;
-import com.venturetech.venture.butizon.Model.Model_Appointments;
 import com.venturetech.venture.butizon.Model.UserApp.Appoinmentbook;
 import com.venturetech.venture.butizon.Model.UserApp.Update.UserUpdate;
 import com.venturetech.venture.butizon.R;
@@ -64,9 +62,11 @@ public class AdapterBookings extends RecyclerView.Adapter<AdapterBookings.MyHold
         myHolder.employee.setText(appointments.get(i).getEmployyename());
         if(appointments.get(i).getStatus().equals("2")){
             myHolder.cancel.setText("Appointment Cancelled");
+            myHolder.cancel.setEnabled(false);
             myHolder.approve.setVisibility(View.GONE);
         } else if(appointments.get(i).getStatus().equals("1")){
             myHolder.approve.setText("Appointment Approved");
+            myHolder.approve.setEnabled(false);
             myHolder.cancel.setVisibility(View.GONE);
         }
         myHolder.cancel.setOnClickListener(new View.OnClickListener() {

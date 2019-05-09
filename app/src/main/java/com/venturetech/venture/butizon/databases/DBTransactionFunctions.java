@@ -752,7 +752,7 @@ public static ArrayList<Services> getServicesList() {
 		DBResponseDataTypes.ReadResponse result;
 
 		try {
-			String Sql="select tb_appoinments.id as id,tb_appoinments.shopid as shopid,tb_appoinments.userid as userid,tb_appoinments.status as status,tb_appoinments.appoinmenttime as appoinmenttime,tb_shop_service.id as service_id,tb_shop_service.service_name as service_name,tb_shop_service.rate as rate,tb_employee.id as emp_id ,tb_employee.emp_name as emp_name,tb_employee.phonenumber as phonenumber ,tb_club.club_name as club_name,tb_club.mobile as mobile,tb_club.city as city,tb_club.street as street,tb_club.state as state,tb_club.email as email from tb_appoinments INNER JOIN (tb_shop_service INNER JOIN tb_employee ON tb_employee.serviceid=tb_shop_service.id) ON tb_appoinments.service_id=tb_shop_service.id join tb_club where tb_appoinments.userid='"+DBTransactionFunctions.getConfigvalue("userid")+"' group by tb_appoinments.id";
+			String Sql="select tb_appoinments.id as id,tb_appoinments.shopid as shopid,tb_appoinments.userid as userid,tb_appoinments.status as status,tb_appoinments.appoinmenttime as appoinmenttime,tb_shop_service.id as service_id,tb_shop_service.service_name as service_name,tb_shop_service.rate as rate,tb_employee.id as emp_id ,tb_employee.emp_name as emp_name,tb_employee.phonenumber as phonenumber ,tb_club.club_name as club_name,tb_club.mobile as mobile,tb_club.city as city,tb_club.street as street,tb_club.state as state,tb_club.email as email from tb_appoinments INNER JOIN (tb_shop_service INNER JOIN tb_employee ON tb_employee.serviceid=tb_shop_service.id) ON tb_appoinments.service_id=tb_shop_service.id join tb_club on tb_club.id=tb_appoinments.shopid where tb_appoinments.userid='"+DBTransactionFunctions.getConfigvalue("userid")+"' group by tb_appoinments.id";
 			result = DB_ReadRowquery(Sql);
 			if (result.count>0){
 				for(int i =0;i<result.responsedata.size();i++) {
@@ -791,7 +791,7 @@ public static ArrayList<Services> getServicesList() {
                     "tb_appoinments.appoinmenttime as appoinmenttime," +
 					"tb_shop_service.id as serid,tb_shop_service.service_name as service_name,tb_shop_service.rate as rate,tb_employee.id as empid," +
 					"tb_employee.emp_name as emp_name,tb_employee.phonenumber as phonenumber ,tb_user.name as name,tb_user.mobile as mobile,tb_user.address as address,tb_user.email as email," +
-					"tb_user.gender  as gender from tb_appoinments INNER JOIN (tb_shop_service INNER JOIN tb_employee ON tb_employee.serviceid=tb_shop_service.id) ON tb_appoinments.service_id=tb_shop_service.id join tb_user where tb_appoinments.shopid='"+DBTransactionFunctions.getConfigvalue("userid")+ "'group by tb_appoinments.id";
+					"tb_user.gender  as gender from tb_appoinments INNER JOIN (tb_shop_service INNER JOIN tb_employee ON tb_employee.serviceid=tb_shop_service.id) ON tb_appoinments.service_id=tb_shop_service.id join tb_user on tb_user.id=tb_appoinments.userid where tb_appoinments.shopid='"+DBTransactionFunctions.getConfigvalue("userid")+ "'group by tb_appoinments.id";
 			result = DB_ReadRowquery(Sql);
 			if (result.count>0){
 				for(int i =0;i<result.responsedata.size();i++) {

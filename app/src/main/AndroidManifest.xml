@@ -26,17 +26,12 @@
         </activity>
         <activity android:name=".StartActivity.Slider" />
         <activity android:name=".StartActivity.Sliding" />
-        <activity android:name=".UserApp.FirstPage" />
-        <activity android:name=".UserLogin.UserLogin" />
-        <activity android:name=".UserLogin.ShopRegister" />
+
         <activity
             android:name=".UserLogin.UserActivity"
             android:label="@string/title_activity_user" />
-        <activity android:name=".UserApp.UserFirst" />
         <activity android:name=".UserLogin.Nearbyshops" />
         <activity android:name=".ClubApp.Register" />
-        <activity android:name=".Welcome" />
-        <activity android:name=".UserApp.Facial" />
         <activity
             android:name=".ClubApp.ClubLogin"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -44,10 +39,9 @@
             android:name=".ClubApp.ClubMain"
             android:label="@string/title_activity_club_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Welcomee"></activity>
         <activity android:name=".Choosing" />
         <activity android:name=".StartActivity.SecondSliding" />
-        <activity android:name=".Chose" />
+
         <activity android:name=".ClubApp.ClubMenu"></activity>
         <activity
             android:name=".UserLogin.SingleItemView"

@@ -1,9 +1,10 @@
 package com.venturetech.venture.butizon.ClubApp;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ import static com.venturetech.venture.butizon.databases.DBTransactionFunctions.i
 public class ClubLogin extends AppCompatActivity {
     EditText username,password;
     Button login;
+    Dialog progressBar;
     TextView register,skiplogin;
     String email;
     RadioButton radioButton;
@@ -39,6 +41,8 @@ public class ClubLogin extends AppCompatActivity {
         password=findViewById(R.id.password);
         login=findViewById(R.id.login);
         register=findViewById(R.id.register);
+        skiplogin.setVisibility(View.GONE);
+
         radioGroup = (RadioGroup) findViewById(R.id.radiogroup);
         setTitle("Club Login");
         RetrofitInterface.SetUserTables(getApplicationContext());
@@ -77,10 +81,13 @@ public class ClubLogin extends AppCompatActivity {
                 boolean flag = true;
                 String uemail = username.getText().toString();
                 String upass = password.getText().toString();
-
+                progressBar = new Dialog(ClubLogin.this);
+                progressBar.setContentView(R.layout.progressdialogue);
+                progressBar.show();
                 if (!Register.isValidPassword( upass )) {
                     password.setError("password contain atleast one special character,one integer,upper and lower case letters");
                     flag = false;
+                    progressBar.cancel();
                 }
                 if (isValidMail(username.getText().toString())) {
                     email = username.getText().toString();
@@ -88,10 +95,14 @@ public class ClubLogin extends AppCompatActivity {
                 } else {
                     username.setError("Invalid Email Id");
                     flag = false;
+                    progressBar.cancel();
+
                 }
                 if(usertype.equals(" ")){
                     Toast.makeText(getApplicationContext(),"Please Select User Type",Toast.LENGTH_LONG).show();
                     flag = false;
+                    progressBar.cancel();
+
                 }
 
 
@@ -107,7 +118,10 @@ public class ClubLogin extends AppCompatActivity {
                             Intent intent=new Intent(ClubLogin.this,ClubMain.class);
                             startActivity(intent);
                             finish();
+                            progressBar.cancel();
+
                         }else {
+                            progressBar.cancel();
                             Toast.makeText(getApplicationContext(),"No registered user found,Please check the username and password",Toast.LENGTH_LONG).show();
                         }
 
@@ -137,9 +151,12 @@ public class ClubLogin extends AppCompatActivity {
                             Intent intent1 = new Intent(ClubLogin.this, UserActivity.class);
                             startActivity(intent1);
                             finish();
+                            progressBar.cancel();
+
                         }
                         else {
                             Toast.makeText(getApplicationContext(),"No registered user found,Please check the username and password",Toast.LENGTH_LONG).show();
+                            progressBar.cancel();
                         }
                     }
 

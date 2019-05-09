@@ -1,25 +1,14 @@
 package com.venturetech.venture.butizon.Fragments.User;
 
 import android.app.Dialog;
-import android.app.FragmentManager;
-import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,8 +38,6 @@ import java.util.HashMap;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -269,6 +256,9 @@ imageView.setOnClickListener(new View.OnClickListener()
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+            final Dialog progressBar = new Dialog(getActivity());
+            progressBar.setContentView(R.layout.progressdialogue);
+            progressBar.show();
             final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
             String encodedImage = encodeImage(selectedImage);
             HashMap<String, String> hashMap = new HashMap<>();
@@ -282,14 +272,16 @@ imageView.setOnClickListener(new View.OnClickListener()
                 public void onResponse(Call<UpadateProfilePicture> call, Response<UpadateProfilePicture> response) {
                     if(response.body().getStatus()==1)
                     {
+                        progressBar.cancel();
                         Toast.makeText(getActivity(), "Profile photo updated", Toast.LENGTH_SHORT).show();
+                        RetrofitInterface.SetUsrData(getActivity());
                     }
 
                 }
 
                 @Override
                 public void onFailure(Call<UpadateProfilePicture> call, Throwable t) {
-
+                    progressBar.cancel();
                 }
             });
 
