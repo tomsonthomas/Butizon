@@ -30,7 +30,7 @@
                     <ImageView
                         android:layout_width="320px"
                         android:layout_height="109dp"
-                        android:src="@drawable/paraffinn" />
+                        android:src="@drawable/facial" />
 
                     <ImageView
                         android:layout_width="320px"

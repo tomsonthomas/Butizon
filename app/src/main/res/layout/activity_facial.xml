@@ -7,10 +7,6 @@
     android:orientation="vertical"
     tools:context=".UserApp.Facial">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +26,7 @@
                     <ImageView
                         android:layout_width="320px"
                         android:layout_height="109dp"
-                        android:src="@drawable/paraffinn" />
+                        android:src="@drawable/facial" />
 
                     <ImageView
                         android:layout_width="320px"
@@ -40,6 +36,4 @@
 
             </RelativeLayout>
         </LinearLayout>
-    </ScrollView>
-
 </LinearLayout>

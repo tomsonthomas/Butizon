@@ -16,17 +16,18 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom"
-                android:background="@drawable/itembackground"
+                android:background="@drawable/custom_edittext"
                 android:layout_alignParentLeft="true">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:id="@+id/dialogue_title"
-                    android:textSize="@dimen/textsize_large"
-                    android:background="@drawable/backgrounndviewall"
-                    android:textColor="@color/colortruewhite"
-                    android:fontFamily="@font/robotoregular"
+                    android:textSize="@dimen/textsize_medium"
+                    android:background="@drawable/custom_edittext"
+                    android:textColor="@color/colorblue"
+                    android:fontFamily="@font/roboto_tin"
                     android:text="Send Feedback"/>
             </LinearLayout>
             <LinearLayout
@@ -58,10 +59,11 @@
                     android:layout_weight=".4"
                     android:gravity="center"
                     android:id="@+id/feedcancel"
-                    android:textSize="@dimen/textsize_large"
-                    android:background="@drawable/backgrounndviewall"
-                    android:textColor="@color/colortruewhite"
-                    android:fontFamily="@font/robotoregular"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/textsize_medium"
+                    android:background="@drawable/custom_edittext"
+                    android:textColor="@color/colorpink"
+                    android:fontFamily="@font/roboto_tin"
                     android:text="Cancel"/>
                 <TextView
                     android:layout_width="0dp"
@@ -69,10 +71,11 @@
                     android:layout_weight=".4"
                     android:gravity="center"
                     android:id="@+id/send"
-                    android:textSize="@dimen/textsize_large"
-                    android:background="@drawable/backgrounndviewall"
-                    android:textColor="@color/colortruewhite"
-                    android:fontFamily="@font/robotoregular"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/textsize_medium"
+                    android:background="@drawable/custom_edittext"
+                    android:textColor="@color/colorpink"
+                    android:fontFamily="@font/roboto_tin"
                     android:text="Send"/>
             </LinearLayout>
 
