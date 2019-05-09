@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="300dp"
+    android:background="#FFF"
+    android:layout_height="300dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:background="@drawable/itembackground"
+                android:layout_alignParentLeft="true">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/dialogue_title"
+                    android:textSize="@dimen/textsize_large"
+                    android:background="@drawable/backgrounndviewall"
+                    android:textColor="@color/colortruewhite"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Send Feedback"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/wright_feedback"
+                    android:background="@drawable/backgroundedittext"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:background="@drawable/itembackground"
+                android:layout_alignParentLeft="true"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:gravity="center"
+                    android:id="@+id/feedcancel"
+                    android:textSize="@dimen/textsize_large"
+                    android:background="@drawable/backgrounndviewall"
+                    android:textColor="@color/colortruewhite"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Cancel"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:gravity="center"
+                    android:id="@+id/send"
+                    android:textSize="@dimen/textsize_large"
+                    android:background="@drawable/backgrounndviewall"
+                    android:textColor="@color/colortruewhite"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Send"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
