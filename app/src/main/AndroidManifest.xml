@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.venturetech.venture.butizon">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/butizon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/butizon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Splash"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".StartActivity.Slider" />
+        <activity android:name=".StartActivity.Sliding" />
+        <activity android:name=".UserApp.FirstPage" />
+        <activity android:name=".UserLogin.UserLogin" />
+        <activity android:name=".UserLogin.ShopRegister" />
+        <activity
+            android:name=".UserLogin.UserActivity"
+            android:label="@string/title_activity_user" />
+        <activity android:name=".UserApp.UserFirst" />
+        <activity android:name=".UserLogin.Nearbyshops" />
+        <activity android:name=".ClubApp.Register" />
+        <activity android:name=".Welcome" />
+        <activity android:name=".UserApp.Facial" />
+        <activity
+            android:name=".ClubApp.ClubLogin"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ClubApp.ClubMain"
+            android:label="@string/title_activity_club_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Welcomee"></activity>
+        <activity android:name=".Choosing" />
+        <activity android:name=".StartActivity.SecondSliding" />
+        <activity android:name=".Chose" />
+        <activity android:name=".ClubApp.ClubMenu"></activity>
+        <activity
+            android:name=".UserLogin.SingleItemView"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".UserLogin.SingleShop"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".UserLogin.ViewAllShops"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".UserLogin.ActivityViewAllServices"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ClubApp.PhotoGallary.MultiPhotoSelectActivity"></activity>
+    </application>
+
+</manifest>

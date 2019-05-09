@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Buti-Zon</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="slide_1_title">Hello... </string>
+    <string name="slide_1_desc">Are You Planning to Improve Your Beauty </string>
+
+    <string name="slide_2_title">Favorite Shops</string>
+    <string name="slide_2_desc">To know the favorite Shops in Your Taste</string>
+
+    <string name="slide_3_title">Fare</string>
+    <string name="slide_3_desc">Calculate  expence in each Shops</string>
+
+    <string name="slide_4_title">Rating </string>
+    <string name="slide_4_desc">To Know the Rating of the Each Shops</string>
+    <string name="title_activity_user">Butizon</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Buti-Zon</string>
+    <string name="nav_header_subtitle">Chage Your Style</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Nearby Shops</string>
+    <string name="title_activity_club_main">ClubMain</string>
+    <string name="textsize_title">20dp</string>
+    <string name="permission_rationale">"Storage permission is needed for fetching images from Gallery."</string>
+    <string name="rupee">"₹ "</string>
+    <string name="star">"How was your experience with us?"</string>
+    <string name="rate">"Rate Us"</string>
+</resources>

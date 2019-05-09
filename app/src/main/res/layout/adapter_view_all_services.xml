@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:background="@drawable/adapterbackground"
+    android:id="@+id/servicelayout"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/serviceimage"
+        android:src="@drawable/ac"
+        android:foreground="@drawable/foreground"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/servicesname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/roboto_tin"
+            android:singleLine="true"
+            android:textColor="@color/colorblack"
+            android:textSize="@dimen/textsize_medium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/serviceshopname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/roboto_tin"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:textColor="@color/colordgrey"
+            android:textSize="@dimen/textsize_medium" />
+
+        <TextView
+            android:id="@+id/serviceaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:textColor="@color/colordgrey"
+            android:fontFamily="@font/roboto_tin"
+            android:textSize="@dimen/textsize_medium" />
+
+        <TextView
+            android:id="@+id/servicerate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/robotobold"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:textColor="@color/colorblack"
+            android:textSize="@dimen/textsize_medium" />
+
+        <TextView
+            android:id="@+id/booknow"
+            android:layout_width="100dp"
+            android:layout_gravity="right"
+            android:layout_marginBottom="2dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edittext"
+            android:fontFamily="@font/roboto_tin"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Book Now"
+            android:textColor="@color/colorpink"
+            android:textSize="@dimen/textsize_medium" />
+    </LinearLayout>
+
+</LinearLayout>

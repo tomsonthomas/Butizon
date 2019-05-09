@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_shop"
+        android:icon="@drawable/outline_home"
+        android:title="Home"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/navigation_gifts"
+        android:icon="@drawable/outline_history"
+        android:title="View Booking"
+        app:showAsAction="always"/>
+
+    <!--<item-->
+        <!--android:id="@+id/navigation_cart"-->
+        <!--android:icon="@drawable/outline_near_me"-->
+        <!--android:title="Near by"-->
+        <!--app:showAsAction="always"/>-->
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/outline_account_circle"
+        android:title="Profile"
+        app:showAsAction="always"/>
+
+</menu>

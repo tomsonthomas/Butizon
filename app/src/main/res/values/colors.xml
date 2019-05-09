@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FD40FA</color>
+    <color name="colorPrimaryDark">#F2F50ADC</color>
+    <color name="colorAccent">#F73FD0</color>
+
+
+    <color name="colorwhite">#f9e5b6</color>
+    <color name="colortruewhite">#ffffff</color>
+    <color name="colorblack">#FF000000</color>
+    <color name="colorred">#fd0101</color>
+    <color name="colorgreen">#ffffff</color>
+    <color name="colorblue">#0738e7</color>
+    <color name="colororgange">#f99b3d</color>
+    <color name="colorlite">#ffc375</color>
+    <color name="colorgrey">#e4e3e2</color>
+    <color name="colordarkgrey">#d1cfcd</color>
+    <color name="colordeepgrey">#9c9c9b</color>
+    <color name="colordgrey">#7c7c77</color>
+    <color name="colorpink">#E2FA5BBD</color>
+    <color name="colorlightpink">#E2EC80C3</color>
+    <color name="colorsecondary">#F5FF53BC</color>
+
+
+    <color name="bg_screen1">#ce72e7</color>
+    <color name="bg_screen2">#ce72e7</color>
+    <color name="bg_screen3">#ce72e7</color>
+    <color name="bg_screen4">#ce72e7</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#2278d4</color>
+    <color name="dot_dark_screen2">#2278d4</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#2278d4</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#e4b5fc</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
+
+</resources>

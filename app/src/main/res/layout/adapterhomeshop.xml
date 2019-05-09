@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="200dp"
+    android:background="@color/colortruewhite"
+    android:id="@+id/servicelayout"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:background="@drawable/itembackground"
+        android:id="@+id/serviceimage"
+        android:foreground="@drawable/foreground"
+        android:src="@drawable/straightening"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopname"
+        android:layout_marginLeft="10dp"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:fontFamily="@font/robotoregular"
+        android:textSize="@dimen/textsize_medium"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/serviceaddress"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/robotoregular"
+        android:singleLine="true"
+        android:textSize="@dimen/textsize_medium"
+         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone"
+        android:singleLine="true"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/robotobold"
+        android:layout_marginBottom="20dp"
+        android:textSize="@dimen/textsize_medium"
+        />
+
+</LinearLayout>

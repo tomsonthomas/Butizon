@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+   <!-- <item android:title="View Details"
+        android:id="@+id/viewdata">
+        <menu>
+            <item
+                android:id="@+id/appoinments"
+                android:icon="@drawable/ic_view"
+                android:title="View Appointments" />
+            <item
+                android:id="@+id/viewfeedback"
+                android:icon="@drawable/ic_view"
+                android:title="View Feedback" />
+            &lt;!&ndash;<item&ndash;&gt;
+                &lt;!&ndash;android:id="@+id/viewrating"&ndash;&gt;
+                &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                &lt;!&ndash;android:layout_height="30dp"&ndash;&gt;
+                &lt;!&ndash;android:icon="@drawable/ic_view"&ndash;&gt;
+                &lt;!&ndash;android:title="View Rating" />&ndash;&gt;
+        </menu>
+    </item>-->
+    <item android:title="Edit Club Data"
+        android:id="@+id/edit">
+        <menu>
+            <item
+                android:id="@+id/editclubdata"
+                android:icon="@drawable/ic_edit"
+                android:title="Update Club Info" />
+            <item
+                android:id="@+id/editempdata"
+                android:icon="@drawable/ic_edit"
+                android:title="Update Employee Info" />
+            <item
+                android:id="@+id/editservdata"
+                android:icon="@drawable/ic_edit"
+                android:title="Update Service Info" />
+            <item
+                android:id="@+id/editschoduledata"
+                android:icon="@drawable/ic_edit"
+                android:title="Update Schedule Info" />
+        </menu>
+    </item>
+    <item android:title="Add Club Details"
+        android:id="@+id/addclub">
+        <menu>
+            <item
+                android:id="@+id/addschedule"
+                android:icon="@drawable/addblack"
+                android:title="Add Schedule" />
+            <item
+                android:id="@+id/addservice"
+                android:icon="@drawable/addblack"
+                android:title="Add Services" />
+            <item
+                android:id="@+id/addemployee"
+                android:icon="@drawable/addblack"
+                android:title="Add Employee" />
+        </menu>
+    </item>
+    <item android:title="Log Out"
+        android:id="@+id/logoutm">
+        <menu>
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_on_off"
+                android:title="Sign Out" />
+        </menu>
+    </item>
+
+</menu>

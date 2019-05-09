@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/color">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/backgroundedittext"
+        android:paddingBottom="10dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/empname"
+            android:textColor="@color/colorblack"
+            android:fontFamily="@font/robotolight"
+            android:gravity="center"
+            android:layout_weight=".2"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textColor="@color/colorblack"
+            android:fontFamily="@font/robotolight"
+            android:id="@+id/empphone"
+            android:layout_weight=".2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/servedit"
+            android:gravity="center"
+            android:textColor="@color/colorblack"
+            android:fontFamily="@font/robotolight"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_pencil"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</android.support.v7.widget.CardView>

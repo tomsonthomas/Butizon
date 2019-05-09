@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorgrey"
+
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <com.daimajia.slider.library.SliderLayout
+                    android:id="@+id/slider"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/colortruewhite"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="@drawable/seachbackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_search" />
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:hint="Search Shops"
+                    android:visibility="gone"
+                    android:fontFamily="@font/robotoregular"
+                    android:textColor="@color/colorblack"
+                    android:background="@drawable/itembackground"
+                    android:layout_weight=".4"/>
+                <TextView
+                android:layout_width="wrap_content"
+                    android:visibility="invisible"
+                android:layout_height="wrap_content"
+                    android:background="@drawable/ic_pencil"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colortruewhite"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/roboto_tin"
+                    android:text="Services"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/colorsecondary"
+                    android:textSize="@dimen/textsize_medium"
+                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:id="@+id/serviceall"
+                        android:background="@drawable/custom_edittext"
+                        android:layout_marginRight="15dp"
+                        android:fontFamily="@font/roboto_tin"
+                        android:text="View All"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/colorpink"
+                        android:textSize="@dimen/textsize_medium"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:id="@+id/nodata"
+                    android:src="@drawable/no_data_found_banner"
+                    android:visibility="gone"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/Sevicelist"
+                    android:layoutAnimation="@anim/layoutanim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/colortruewhite"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_tin"
+                    android:text="Shops"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/colorsecondary"
+                    android:textSize="@dimen/textsize_medium"
+                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:id="@+id/shopall"
+                        android:background="@drawable/custom_edittext"
+                        android:layout_marginRight="15dp"
+                        android:fontFamily="@font/roboto_tin"
+                        android:text="View All"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/colorpink"
+                        android:textSize="@dimen/textsize_medium"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:id="@+id/nodata1"
+                    android:src="@drawable/no_data_found_banner"
+                    android:visibility="gone"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="170dp"
+                    android:background="@color/colortruewhite"
+                    android:id="@+id/shoplayout1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:foreground="@drawable/foreground" android:background="@drawable/itembackground"
+                        android:id="@+id/serviceimage1"
+                        android:src="@drawable/parlour"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/shopname1"
+                        android:layout_marginLeft="10dp"
+                        android:singleLine="true"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_tin"
+                        android:textColor="@color/colorblack"
+                        android:textSize="@dimen/textsize_medium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/serviceaddress1"
+                        android:layout_marginLeft="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_tin"
+                        android:singleLine="true"
+                        android:textSize="@dimen/textsize_medium"
+                       />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/phone1"
+                        android:singleLine="true"
+                        android:layout_marginLeft="10dp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_tin"
+                        android:layout_marginBottom="20dp"
+                        android:textSize="@dimen/textsize_medium" />
+                </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="170dp"
+                        android:background="@color/colortruewhite"
+                        android:id="@+id/shoplayout2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp" android:foreground="@drawable/foreground" android:background="@drawable/itembackground"
+                            android:id="@+id/serviceimage2"
+                            android:src="@drawable/trim"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/shopname2"
+                            android:layout_marginLeft="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorblack"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto_tin"
+                            android:textSize="@dimen/textsize_medium"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/serviceaddress2"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/roboto_tin"
+                            android:singleLine="true"
+                            android:textSize="@dimen/textsize_medium"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/phone2"
+                            android:singleLine="true"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/roboto_tin"
+                            android:layout_marginBottom="20dp"
+                            android:textSize="@dimen/textsize_medium" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="170dp"
+                        android:background="@color/colortruewhite"
+                        android:id="@+id/shoplayout3"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:foreground="@drawable/foreground"
+                            android:background="@drawable/itembackground"
+                            android:id="@+id/serviceimage3"
+                            android:src="@drawable/makeup"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/shopname3"
+                            android:textColor="@color/colorblack"
+                            android:layout_marginLeft="10dp"
+                            android:singleLine="true"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto_tin"
+                            android:textSize="@dimen/textsize_medium" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/serviceaddress3"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto_tin"
+                            android:singleLine="true"
+                            android:textSize="@dimen/textsize_medium" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/phone3"
+                            android:textStyle="bold"
+                            android:singleLine="true"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/roboto_tin"
+                            android:layout_marginBottom="20dp"
+                            android:textSize="@dimen/textsize_medium" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="170dp"
+                        android:background="@color/colortruewhite"
+                        android:id="@+id/shoplayout4"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:foreground="@drawable/foreground"
+                            android:background="@drawable/itembackground"
+                            android:id="@+id/serviceimage4"
+                            android:src="@drawable/relax"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/shopname4"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/colorblack"
+                            android:singleLine="true"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto_tin"
+                            android:textSize="@dimen/textsize_medium" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/serviceaddress4"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto_tin"
+                            android:singleLine="true"
+                            android:textSize="@dimen/textsize_medium"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/phone4"
+                            android:singleLine="true"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto_tin"
+                            android:layout_marginBottom="20dp"
+                            android:textSize="@dimen/textsize_medium" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="50dp"
+                android:background="@color/colortruewhite"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight=".4"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_tin"
+                    android:layout_marginLeft="10dp"
+                    android:text="Rate Wise"
+                    android:textColor="@color/colorsecondary"
+                    android:textSize="@dimen/textsize_medium"
+                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:id="@+id/rateall"
+                        android:background="@drawable/custom_edittext"
+                        android:layout_marginRight="15dp"
+                        android:fontFamily="@font/roboto_tin"
+                        android:text="View All"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/colorpink"
+                        android:textSize="@dimen/textsize_medium"
+                        android:textStyle="bold" />
+                </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:background="@drawable/spinner_border"
+        android:layout_marginTop="10dp"
+        android:id="@+id/spinner"
+        >
+
+    </Spinner>
+</LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:id="@+id/nodata2"
+                    android:src="@drawable/nodatapic"
+                    android:visibility="gone"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/Ratebase"
+                    android:layoutAnimation="@anim/layoutanim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
