@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.venturetech.venture.butizon.Adapters.Club.AdapterEmployee;
-import com.venturetech.venture.butizon.Adapters.Club.AdaterServices;
 import com.venturetech.venture.butizon.Model.Employee;
 import com.venturetech.venture.butizon.R;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
@@ -40,6 +39,14 @@ static ImageView imageView;
         imageView =view.findViewById(R.id.image);
         RecyclerView.LayoutManager layoutManager =new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
+
+
+
+
+
+
+
         if(list.size()==0){
             imageView.setVisibility(View.VISIBLE);
         }
