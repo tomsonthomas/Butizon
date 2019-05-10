@@ -3,7 +3,6 @@ package com.venturetech.venture.butizon.UserLogin;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,7 +28,6 @@ import com.venturetech.venture.butizon.Adapters.User.AdapterSpinner;
 import com.venturetech.venture.butizon.ClubApp.Register;
 import com.venturetech.venture.butizon.Model.Employee;
 import com.venturetech.venture.butizon.Model.Feedback;
-import com.venturetech.venture.butizon.Model.Model_Appointments;
 import com.venturetech.venture.butizon.Model.Model_shedule;
 import com.venturetech.venture.butizon.Model.Shop_Service_Details;
 import com.venturetech.venture.butizon.Model.UserApp.Appoinmentbook;
@@ -40,6 +37,7 @@ import com.venturetech.venture.butizon.Utilities.RetrofitService.RetroInterface;
 import com.venturetech.venture.butizon.Utilities.RetrofitService.RetrofitInstance;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -233,6 +231,30 @@ public class SingleItemView extends AppCompatActivity {
             save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    try {
+                        String string1 = schedule.get(0).getOptime();
+                        Date time1 = new SimpleDateFormat("HH:mm:ss").parse(string1);
+                        Calendar calendar1 = Calendar.getInstance();
+                        calendar1.setTime(time1);
+
+                        String string2 = schedule.get(0).getCltime();
+                        Date time2 = new SimpleDateFormat("HH:mm:ss").parse(string2);
+                        Calendar calendar2 = Calendar.getInstance();
+                        calendar2.setTime(time2);
+                        calendar2.add(Calendar.DATE, 1);
+
+                        String someRandomTime =textView.getText().toString();
+                        Date d = new SimpleDateFormat("HH:mm:ss").parse(someRandomTime);
+                        Calendar calendar3 = Calendar.getInstance();
+                        calendar3.setTime(d);
+                        calendar3.add(Calendar.DATE, 1);
+
+                        Date x = calendar3.getTime();
+                        if (x.after(calendar1.getTime()) && x.before(calendar2.getTime())) {
+
+
+
+
 
 //                ContentValues cv = new ContentValues();
 //                cv.put("userid",DBTransactionFunctions.getConfigvalue("userid"));
@@ -271,8 +293,13 @@ public class SingleItemView extends AppCompatActivity {
 
                         }
                     });
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Please choose a time ", Toast.LENGTH_LONG).show();
 
-
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
             cancel.setOnClickListener(new View.OnClickListener() {

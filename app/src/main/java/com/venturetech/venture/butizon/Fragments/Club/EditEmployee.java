@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class EditEmployee extends Fragment {
     static RecyclerView recyclerView;
     static ArrayList<Employee> list = new ArrayList<>();
-static ImageView imageView;
+    static ImageView imageView;
     public static Fragment newInstance() {
         return new EditEmployee();
     }
