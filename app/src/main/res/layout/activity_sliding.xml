@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StartActivity.Sliding">
-
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
@@ -13,7 +12,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
-
     <LinearLayout
         android:id="@+id/layoutDots"
         android:layout_width="match_parent"
@@ -22,16 +20,13 @@
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="horizontal">
-
     </LinearLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:alpha=".5"
         android:layout_above="@id/layoutDots"
+        android:alpha=".5"
         android:background="@drawable/color" />
-
     <Button
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
@@ -42,7 +37,6 @@
         android:textSize="18dp"
         android:text="@string/next"
         android:textColor="#000" />
-
     <Button
         android:id="@+id/btn_skip"
         android:layout_width="wrap_content"
@@ -53,8 +47,4 @@
         android:text="@string/skip"
         android:textSize="18dp"
         android:textColor="#000" />
-
-
-
-
 </RelativeLayout>

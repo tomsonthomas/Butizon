@@ -75,7 +75,7 @@ public class AdapterActivityViewAllServices extends RecyclerView.Adapter<Adapter
             return;
         }
 
-    Bitmap mbitmap = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.tc)).getBitmap();
+    Bitmap mbitmap = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.hairsaloon)).getBitmap();
     Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
     Canvas canvas = new Canvas(imageRounded);
     Paint mpaint = new Paint();

@@ -42,7 +42,6 @@
         <activity android:name=".Choosing" />
         <activity android:name=".StartActivity.SecondSliding" />
 
-        <activity android:name=".ClubApp.ClubMenu"></activity>
         <activity
             android:name=".UserLogin.SingleItemView"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -55,7 +54,6 @@
         <activity
             android:name=".UserLogin.ActivityViewAllServices"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ClubApp.PhotoGallary.MultiPhotoSelectActivity"></activity>
     </application>
 
 </manifest>

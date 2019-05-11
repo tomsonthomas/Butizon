@@ -10,7 +10,8 @@
         android:layout_height="150dp"
         android:id="@+id/serviceimage"
         android:src="@drawable/ac"
-        android:foreground="@drawable/foreground"/>
+        android:foreground="@drawable/foreground"
+        android:background="@drawable/itembackground"/>
 
     <LinearLayout
         android:layout_width="match_parent"

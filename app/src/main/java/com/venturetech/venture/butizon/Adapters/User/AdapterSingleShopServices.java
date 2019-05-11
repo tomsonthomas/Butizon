@@ -40,11 +40,9 @@ import com.venturetech.venture.butizon.Utilities.RetrofitService.RetroInterface;
 import com.venturetech.venture.butizon.Utilities.RetrofitService.RetrofitInstance;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -93,7 +91,7 @@ try {
         return;
     }
 
-        Bitmap mbitmap = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.tc)).getBitmap();
+        Bitmap mbitmap = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.hairsaloon)).getBitmap();
         Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
         Canvas canvas = new Canvas(imageRounded);
         Paint mpaint = new Paint();

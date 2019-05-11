@@ -51,8 +51,7 @@ public class AdapterHomeService extends RecyclerView.Adapter<AdapterHomeService.
     @Override
     public void onBindViewHolder(@NonNull MyHolder myHolder, final int position) {
         try {
-
-                Bitmap mbitmap = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.tc)).getBitmap();
+                Bitmap mbitmap = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.hairsaloon)).getBitmap();
                 Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
                 Canvas canvas = new Canvas(imageRounded);
                 Paint mpaint = new Paint();
@@ -60,8 +59,6 @@ public class AdapterHomeService extends RecyclerView.Adapter<AdapterHomeService.
                 mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
                 canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
                 myHolder.image.setImageBitmap(imageRounded);
-
-
             myHolder.name.setText(data.get(position).getService_name());
             myHolder.address.setText(data.get(position).getClub_name() + ","+data.get(position).getStreet() + "," + data.get(position).getCity() + "," + data.get(position).getState());
             myHolder.rate.setText("₹ " + data.get(position).getRate());

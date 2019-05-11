@@ -12,8 +12,7 @@
         android:layout_height="150dp"
         android:foreground="@drawable/foreground"
         android:background="@drawable/itembackground"
-        android:id="@+id/serviceimage"
-        android:src="@drawable/threading"/>
+        android:id="@+id/serviceimage"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

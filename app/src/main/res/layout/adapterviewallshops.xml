@@ -13,8 +13,7 @@
             android:layout_height="100dp"
             android:foreground="@drawable/foreground"
             android:background="@drawable/itembackground"
-            android:id="@+id/serviceimage1"
-            android:src="@drawable/pedicure"/>
+            android:id="@+id/serviceimage1"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

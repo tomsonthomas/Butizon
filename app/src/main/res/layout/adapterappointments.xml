@@ -11,8 +11,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/image"
-        android:foreground="@drawable/foreground"
-        android:src="@drawable/smoothing"/>
+        android:foreground="@drawable/foreground"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
