@@ -1083,6 +1083,19 @@ public static ArrayList<Services> getServicesList() {
 		}
 		return name;
 	}
+	public static String getName(String userid) {
+		String name = null;
+		try {
+
+			String Sql = "select name from tb_user where id='" + userid + "'";
+			DBResponseDataTypes.ReadResponse result = DB_ReadRowquery(Sql);
+			name = result.responsedata.get(0).data.get("name");
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return name;
+	}
 	public static boolean isEmailFound(String tablename,String  where,String email) {
 		boolean name = false;
 		try {

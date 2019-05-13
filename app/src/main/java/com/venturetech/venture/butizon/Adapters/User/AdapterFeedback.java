@@ -6,9 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import com.venturetech.venture.butizon.Model.UserApp.List.FeedbackListt;
 import com.venturetech.venture.butizon.Model.UserApp.List.ServiceFeedbackList;
@@ -40,7 +38,7 @@ public class AdapterFeedback extends RecyclerView.Adapter<AdapterFeedback.MyHold
 
 
                 myHolder.msg.setText(feeback.get(i).getMessage());
-                myHolder.usname.setText(feeback.get(i).getUser_name());
+                myHolder.usname.setText(feeback.get(i).getName());
 
 
 

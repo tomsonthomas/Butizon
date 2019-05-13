@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 
-import com.venturetech.venture.butizon.Adapters.Club.AdapterBookings;
 import com.venturetech.venture.butizon.Adapters.Club.AdapterFeedBack;
 import com.venturetech.venture.butizon.Model.UserApp.List.FeedbackListt;
 import com.venturetech.venture.butizon.R;

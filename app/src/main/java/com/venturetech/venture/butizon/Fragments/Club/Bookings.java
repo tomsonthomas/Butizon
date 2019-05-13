@@ -16,10 +16,7 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.EditText;
 
 import com.venturetech.venture.butizon.Adapters.Club.AdapterBookings;
-import com.venturetech.venture.butizon.Adapters.User.AdapterAppointments;
-import com.venturetech.venture.butizon.Fragments.User.BookingHistory;
 import com.venturetech.venture.butizon.Model.ModelClubAppointments;
-import com.venturetech.venture.butizon.Model.Model_Appointments;
 import com.venturetech.venture.butizon.R;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 

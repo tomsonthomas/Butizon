@@ -4,22 +4,23 @@ import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
 public class FeedbackListt {
 
-    String userid,shopid,message,club_name,user_name,servicename;
+    String userid,shopid,message,club_name,user_name,servicename,name;
 
     public FeedbackListt(String userid, String shopid, String message, String club_name) {
         this.userid = userid;
         this.shopid = shopid;
         this.message = message;
+        name=DBTransactionFunctions.getName(userid);
         this.club_name = club_name;
         this.user_name = DBTransactionFunctions.getUsername(userid);
     }
-
     public FeedbackListt(String userid, String shopid, String message, String serviceid, String club_name) {
         this.userid = userid;
         this.shopid = shopid;
         this.message = message;
         this.club_name = club_name;
         this.user_name = DBTransactionFunctions.getUsername(userid);
+        name=DBTransactionFunctions.getName(userid);
         this.servicename = DBTransactionFunctions.getServiceName(serviceid);
     }
 
@@ -45,5 +46,8 @@ public class FeedbackListt {
 
     public String getServicename() {
         return servicename;
+    }
+    public String getName() {
+        return name;
     }
 }

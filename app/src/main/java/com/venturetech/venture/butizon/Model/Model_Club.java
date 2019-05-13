@@ -3,7 +3,7 @@ package com.venturetech.venture.butizon.Model;
 public class Model_Club {
 String Id,Name,Category,Mobile,Email,Website,Street,City,State,Country,District,P_image;
 
-    public Model_Club(String id, String name,String category, String mobile, String email, String website, String street, String city, String state, String country, String district) {
+public Model_Club(String id, String name,String category, String mobile, String email, String website, String street, String city, String state, String country, String district) {
         Id = id;
         Name = name;
         Category=category;
@@ -17,7 +17,7 @@ String Id,Name,Category,Mobile,Email,Website,Street,City,State,Country,District,
         District = district;
     }
 
-    public Model_Club(String id, String club_name, String category, String mobile, String email, String website, String street, String city, String state, String country, String district, String p_image)
+public Model_Club(String id, String club_name, String category, String mobile, String email, String website, String street, String city, String state, String country, String district, String p_image)
     {
         Id = id;
         Name = club_name;
@@ -148,8 +148,6 @@ String Id,Name,Category,Mobile,Email,Website,Street,City,State,Country,District,
     }
     public void setStreet(String street) {
         this.Street = street;
-
-
     }
 
 

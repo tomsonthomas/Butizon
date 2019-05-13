@@ -28,7 +28,8 @@
             android:foreground="?attr/selectableItemBackground"
             app:itemIconTint="@color/colortruewhite"
             app:itemTextColor="@color/colortruewhite"
-            app:menu="@menu/club_navigation" />
+            android:theme="@style/Widget.BottomNavigationView"
+            app:itemTextAppearanceActive="@style/NavigationViewOwnStyle" app:menu="@menu/club_navigation" />
 
 
     </RelativeLayout>
@@ -39,6 +40,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_club_main"
+        app:itemTextAppearance="@style/NavigationViewOwnStyle"
         app:itemIconTint="@color/colorpink"
         app:menu="@menu/activity_club_main_drawer"
         app:itemTextColor="@color/colorsecondary"/>

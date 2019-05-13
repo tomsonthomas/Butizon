@@ -322,7 +322,7 @@ public class ClubMain extends AppCompatActivity
     }
     private void applyFontToMenuItem(MenuItem mi) {
         try {
-            Typeface font = Typeface.createFromAsset(getAssets(), "robotoregular.ttf");
+            Typeface font = Typeface.createFromAsset(getAssets(), "baskvill.ttf");
             SpannableString mNewTitle = new SpannableString(mi.getTitle());
             mNewTitle.setSpan(new CustomTypefaceSpan("", font), 0, mNewTitle.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
             mi.setTitle(mNewTitle);

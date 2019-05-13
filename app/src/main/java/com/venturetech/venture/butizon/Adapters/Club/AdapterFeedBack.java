@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.venturetech.venture.butizon.Adapters.User.AdapterFeedback;
 import com.venturetech.venture.butizon.Model.UserApp.List.FeedbackListt;
 import com.venturetech.venture.butizon.Model.UserApp.List.ServiceFeedbackList;
 import com.venturetech.venture.butizon.R;
@@ -39,9 +38,9 @@ public class AdapterFeedBack  extends  RecyclerView.Adapter<AdapterFeedBack.MyHo
     public void onBindViewHolder(@NonNull AdapterFeedBack.MyHolder myHolder, int i) {
 
 
-      //  myHolder.msg.setText(feeback.get(i).getMessage());
-        myHolder.usname.setText(feeback.get(i).getUser_name());
-        myHolder.servicename.setText(feeback.get(i).getServicename()+":: "+feeback.get(i).getMessage());
+      // myHolder.msg.setText(feeback.get(i).getMessage());
+        myHolder.usname.setText(feeback.get(i).getName());
+        myHolder.servicename.setText(feeback.get(i).getServicename()+":: \n\t\t\t\t\t"+feeback.get(i).getMessage());
 
 
 
@@ -61,7 +60,7 @@ public class AdapterFeedBack  extends  RecyclerView.Adapter<AdapterFeedBack.MyHo
         public MyHolder(@NonNull View itemView) {
             super(itemView);
 
-            //msg=itemView.findViewById(R.id.message);
+         //   msg=itemView.findViewById(R.id.message);
             usname=itemView.findViewById(R.id.Username);
             servicename=itemView.findViewById(R.id.srvicename);
 
