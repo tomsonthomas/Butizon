@@ -46,6 +46,8 @@ public class ImageAdapter extends PagerAdapter {
 
 
 
+
+
     @Override
     public int getCount() {
         return sliderImageId.length;
