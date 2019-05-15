@@ -10,7 +10,7 @@
 
         android:width="2dp"
 
-        android:color="#FFFFFFFF" />
+        android:color="@color/colorgrey" />
 
 
 
@@ -18,21 +18,21 @@
 
         android:angle="225"
 
-        android:endColor="#DD2ECCFA"
+        android:endColor="@color/colorAccent"
 
-        android:startColor="#DD000000" />
+        android:startColor="@color/colorAccent" />
 
 
 
     <corners
 
-        android:bottomLeftRadius="60dp"
+        android:bottomLeftRadius="12dp"
 
-        android:bottomRightRadius="60dp"
+        android:bottomRightRadius="12dp"
 
-        android:topLeftRadius="60dp"
+        android:topLeftRadius="12dp"
 
-        android:topRightRadius="60dp" />
+        android:topRightRadius="12dp" />
 
 
 
