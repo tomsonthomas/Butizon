@@ -340,10 +340,8 @@ public class ClubMain extends AppCompatActivity
         drawer.setScrimColor(Color.WHITE);
         toogle.setDrawerIndicatorEnabled(true);
         toogle.syncState();
-        if(toolbar != null)
+        if(toolbar!=null)
             toolbar.setTitle(title);
-
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

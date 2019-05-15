@@ -40,6 +40,7 @@ import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -57,6 +58,7 @@ public class SingleItemView extends AppCompatActivity {
     Calendar date;
     String timestamp;
     String employeeid,feed;
+    String timeformated;
     TextView servicename,name,address,timing,rate,booknow,viewfeedback,sendfeedback;
     ArrayList<Shop_Service_Details> data = new ArrayList<Shop_Service_Details>();
     ArrayList<Model_shedule> schedule = new ArrayList<Model_shedule>();
@@ -229,32 +231,44 @@ public class SingleItemView extends AppCompatActivity {
             save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-//                    try {
-//                        String string1 = schedule.get(0).getOptime();
-//                        Date time1 = new SimpleDateFormat("dd/MM/yy HH:mm a").parse(string1);
-//                        Calendar calendar1 = Calendar.getInstance();
-//                        calendar1.setTime(time1);
-//
-//                        String string2 = schedule.get(0).getCltime();
-//                        Date time2 = new SimpleDateFormat("dd/MM/yy HH:mm a").parse(string2);
-//                        Calendar calendar2 = Calendar.getInstance();
-//                        calendar2.setTime(time2);
-//                        calendar2.add(Calendar.DATE, 1);
-//
-//                        String someRandomTime =textView.getText().toString();
-//                        Date d = new SimpleDateFormat("dd/MM/yy HH:mm a").parse(someRandomTime);
-//                        Calendar calendar3 = Calendar.getInstance();
-//                        calendar3.setTime(d);
-//                        calendar3.add(Calendar.DATE, 1);
-//
-//                        Date x = calendar3.getTime();
-//                        if (x.after(calendar1.getTime()) && x.before(calendar2.getTime())) {
-
-
-
+                    try {
+                         ArrayList<String> list= getHour_Minute_AMPM(schedule.get(0).getOptime());
+                        Calendar calendar1 = Calendar.getInstance();
+                        calendar1.set(Calendar.HOUR, Integer.parseInt(list.get(0)));
+                        calendar1.set(Calendar.MINUTE, Integer.parseInt(list.get(1)));
+                        calendar1.set(Calendar.SECOND, 00);
+                        if(list.get(2).equals("AM"))
+                        calendar1.set(Calendar.AM_PM,Calendar.AM);
+                        else
+                            calendar1.set(Calendar.AM_PM,Calendar.PM);
+                        //Date time1 = new SimpleDateFormat("dd/MM/yyyy HH:mm a").parse(string1);
+                     //   Calendar calendar1 = Calendar.getInstance();
+                      //  calendar1.setTime(time1);
+                        ArrayList<String> list1= getHour_Minute_AMPM(schedule.get(0).getCltime());
+                        Calendar calendar2 = Calendar.getInstance();
+                      calendar2.set(Calendar.HOUR, Integer.parseInt(list1.get(0)));
+                      calendar2.set(Calendar.MINUTE, Integer.parseInt(list1.get(1)));
+                      calendar2.set(Calendar.SECOND, 00);
+                        if(list1.get(2).equals("AM"))
+                            calendar2.set(Calendar.AM_PM,Calendar.AM);
+                        else
+                            calendar2.set(Calendar.AM_PM,Calendar.PM);
 
 
+                        Calendar calendar3 = Calendar.getInstance();
+                        ArrayList<String> list3=getHour_Minute_AMPM(timeformated);
+                        calendar3.set(Calendar.HOUR, Integer.parseInt(list3.get(0)));
+                        calendar3.set(Calendar.MINUTE, Integer.parseInt(list3.get(1)));
+                        calendar3.set(Calendar.SECOND, 00);
+                        if(list3.get(2).equals("AM"))
+                            calendar2.set(Calendar.AM_PM,Calendar.AM);
+                        else
+                            calendar2.set(Calendar.AM_PM,Calendar.PM);
+
+                     Date x = calendar3.getTime();
+                     Date x1 = calendar1.getTime();
+                     Date x2 = calendar2.getTime();
+                       if (x.after(calendar1.getTime()) && x.before(calendar2.getTime())) {
 //                ContentValues cv = new ContentValues();
 //                cv.put("userid",DBTransactionFunctions.getConfigvalue("userid"));
 //                cv.put("shopid",data.get(0).getId());
@@ -263,10 +277,10 @@ public class SingleItemView extends AppCompatActivity {
 //                cv.put("appoinmenttime",textView.getText().toString());
 //                cv.put("updatedtime",System.currentTimeMillis());
 //                cv.put("status","0");
-//                DBTransactionFunctions.DB_InsertRow("tb_appoinments",cv);
-//                Toast.makeText(SingleItemView.this,"Appoinment Submitted,Waiting for Conformation",Toast.LENGTH_LONG).show();
-//                dialog.cancel();
-//                finish();
+             //  DBTransactionFunctions.DB_InsertRow("tb_appoinments",cv);
+           //    Toast.makeText(SingleItemView.this,"Appoinment Submitted,Waiting for Conformation",Toast.LENGTH_LONG).show();
+            //  dialog.cancel();
+               // finish();
 
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("user_id", DBTransactionFunctions.getConfigvalue("userid"));
@@ -292,13 +306,13 @@ public class SingleItemView extends AppCompatActivity {
 
                         }
                     });
-//                        }else{
-//                            Toast.makeText(getApplicationContext(), "Sorry ,Shop timing from: "+schedule.get(0).getOptime()+" to "+schedule.get(0).getCltime(), Toast.LENGTH_LONG).show();
-//
-//                        }
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
+                     }else{
+                           Toast.makeText(getApplicationContext(), "Sorry ,Shop timing from: "+schedule.get(0).getOptime()+" to "+schedule.get(0).getCltime(), Toast.LENGTH_LONG).show();
+
+                       }
+                    } catch (Exception e) {
+                       e.printStackTrace();
+                   }
                 }
             });
             cancel.setOnClickListener(new View.OnClickListener() {
@@ -363,8 +377,11 @@ public class SingleItemView extends AppCompatActivity {
                         date.set(Calendar.HOUR_OF_DAY, hourOfDay);
                         date.set(Calendar.MINUTE, minute);
                         String myFormat = "dd/MM/yy hh:mm a"; // your own format
+                        String myFormat1 = "hh:mm a"; // your own format
                         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                        SimpleDateFormat sdf1 = new SimpleDateFormat(myFormat1, Locale.US);
                         String  formated_time = sdf.format(date.getTime());
+                         timeformated = sdf1.format(date.getTime());
                         timestamp=formated_time;
                         textView.setText(timestamp);
                     }
@@ -376,5 +393,25 @@ public class SingleItemView extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+
+    public ArrayList<String> getHour_Minute_AMPM(String time){
+        ArrayList<String> list=new ArrayList<>();
+        try{
+
+            String[] time1 = time.split ( ":" );
+            String[] time3 = time.split ( " " );
+            String[] time4 = time1[1].split ( " " );
+            String hour =  time1[0].trim() ;
+            String min =  time4[0].trim() ;
+            String  am = time3[1].trim();
+            list.add(hour);
+            list.add(min);
+            list.add(am);
+        }catch (Exception e){
+
+        }
+        return list;
     }
 }
