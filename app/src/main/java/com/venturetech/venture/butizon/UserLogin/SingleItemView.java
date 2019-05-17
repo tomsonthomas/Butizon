@@ -135,6 +135,9 @@ public class SingleItemView extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         feed=feedback.getText().toString();
+                        final ProgressDialog progressDialog =new ProgressDialog(SingleItemView.this);
+                        progressDialog.setMessage("Please Wait...");
+                        progressDialog.show();
                         HashMap<String,String>hashMap=new HashMap<>();
 //                        ContentValues cv = new ContentValues();
 //                        cv.put("userid",DBTransactionFunctions.getConfigvalue("userid"));
@@ -153,13 +156,14 @@ public class SingleItemView extends AppCompatActivity {
                             public void onResponse(Call<Feedback> call, Response<Feedback> response) {
                                 Toast.makeText(getApplicationContext(),"FeedBack send Succeccfully",Toast.LENGTH_LONG).show();
                                 dialog.cancel();
+                                progressDialog.cancel();
                                 sentFeedback();
                                 finish();
                             }
 
                             @Override
                             public void onFailure(Call<Feedback> call, Throwable t) {
-
+                                progressDialog.cancel();
                             }
                         });
 

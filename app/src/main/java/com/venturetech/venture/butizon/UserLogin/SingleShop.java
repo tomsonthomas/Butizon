@@ -1,6 +1,7 @@
 package com.venturetech.venture.butizon.UserLogin;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -103,6 +104,9 @@ public class SingleShop extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
+                        final ProgressDialog progressDialog =new ProgressDialog(SingleShop.this);
+                        progressDialog.setMessage("Please Wait...");
+                        progressDialog.show();
                         String rating=String.valueOf(ratingBar.getRating());
                         Toast.makeText(getApplicationContext(), rating, Toast.LENGTH_LONG).show();
 
@@ -127,12 +131,14 @@ public class SingleShop extends AppCompatActivity {
                             @Override
                             public void onResponse(Call<ServiceRateRegister> call, Response<ServiceRateRegister> response)
                             {
-
+                                progressDialog.cancel();
+                                dialog.cancel();
                             }
 
                             @Override
                             public void onFailure(Call<ServiceRateRegister> call, Throwable t)
                             {
+progressDialog.cancel();
                             dialog.cancel();
                             }
                         });

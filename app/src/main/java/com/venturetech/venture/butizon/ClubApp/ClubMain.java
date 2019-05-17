@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -79,6 +80,7 @@ public class ClubMain extends AppCompatActivity
     Fragment fm=null;
     ColorStateList ColorStateList1 = new ColorStateList(state, color);
     ColorStateList ColorStateList2 = new ColorStateList(state, color1);
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,7 @@ public class ClubMain extends AppCompatActivity
         checkRunTimePermission();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation1);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setLayoutMode(1);
         navigation.setItemIconTintList(ColorStateList2);
         navigation.setItemTextColor(ColorStateList2);
         mHandler= new Handler();
