@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.EditText;
@@ -28,6 +29,7 @@ public  class Nearbyshops extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);setContentView(R.layout.nearbyshops);
         recyclerView = findViewById(R.id.Sevicelist);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         editText =findViewById(R.id.search_service);
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(Nearbyshops.this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -59,5 +61,15 @@ public  class Nearbyshops extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

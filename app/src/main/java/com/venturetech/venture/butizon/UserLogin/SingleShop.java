@@ -50,6 +50,7 @@ public class SingleShop extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_OVERSCAN, WindowManager.LayoutParams.FLAG_LAYOUT_IN_OVERSCAN);
         setContentView(R.layout.single_shop);
+
         name =findViewById(R.id.shopname);
         address =findViewById(R.id.address);
         phone =findViewById(R.id.phone);

@@ -21,6 +21,7 @@
     <string name="nav_header_subtitle">Chage Your Style</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Nearby Shops</string>
+    <string name="action_View">Appointment Status</string>
     <string name="title_activity_club_main">ClubMain</string>
     <string name="textsize_title">20dp</string>
     <string name="permission_rationale">"Storage permission is needed for fetching images from Gallery."</string>

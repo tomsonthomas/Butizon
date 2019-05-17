@@ -31,7 +31,10 @@
         <activity
             android:name=".UserLogin.UserActivity"
             android:label="@string/title_activity_user" />
-        <activity android:name=".UserLogin.Nearbyshops" />
+        <activity android:name=".UserLogin.Nearbyshops"
+            android:label="Nearby Shops"/>
+        <activity android:name=".UserLogin.ApponmentStatus"
+            android:label="Appointment Status"/>
         <activity android:name=".ClubApp.Register" />
         <activity
             android:name=".ClubApp.ClubLogin"

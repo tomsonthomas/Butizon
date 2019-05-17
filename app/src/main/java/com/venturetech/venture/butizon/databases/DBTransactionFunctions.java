@@ -518,6 +518,28 @@ public static boolean isClubFound(String email, String password)
 		}
 		return list;
 	}
+public static ArrayList<Services> getServices(String id) {
+		ArrayList<Services> list=new ArrayList<>();
+		DBResponseDataTypes.ReadResponse result;
+		try{
+			String Sql="select * from tb_shop_service where shopid='"+id+"'";
+		 result = DB_ReadRowquery(Sql);
+			if(result.count>0){
+				for(int i = 0 ;i<result.responsedata.size();i++){
+					list.add(new Services(result.responsedata.get(i).data.get("id"),
+							result.responsedata.get(i).data.get("shopid"),
+							result.responsedata.get(i).data.get("service_name"),
+							result.responsedata.get(i).data.get("rate")));
+				}
+
+			}
+
+
+		}catch (Exception e){
+
+		}
+		return list;
+	}
 
 	//to get all services
 public static ArrayList<Services> getServicesList() {
@@ -884,12 +906,12 @@ public static ArrayList<Services> getServicesList() {
 		}
 		return list;
 	}
-	public static ArrayList<Model_Club> getNearbyClubData() {
+	public static ArrayList<Model_Club> getAllClubData() {
 		DBResponseDataTypes.ReadResponse result;
 		ArrayList<Model_Club>list=new ArrayList<>();
 
 		try{
-			String Sql="select * from tb_club";
+			String Sql="select * from tb_club where tb_club.category='"+DBTransactionFunctions.getConfigvalue("gender")+"'";
 			result = DB_ReadRowquery(Sql);
 
 			if(result.count>0){

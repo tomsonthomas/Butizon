@@ -79,7 +79,6 @@ public class UserActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
         final AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle("Confirm Exit..!!!");
         adb.setMessage("Are you sure,You want to exit");
@@ -94,7 +93,6 @@ public class UserActivity extends AppCompatActivity {
             }
         });
         adb.show();
-
     }
 
 
@@ -167,10 +165,13 @@ public class UserActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent intent=new Intent(UserActivity.this,Nearbyshops.class);
+            startActivity(intent);
+            return true;
+        }if (id == R.id.action_view) {
+            Intent intent=new Intent(UserActivity.this,ApponmentStatus.class);
             startActivity(intent);
             return true;
         }

@@ -31,8 +31,6 @@
             android:theme="@style/Widget.BottomNavigationView"
             app:itemTextAppearanceActive="@style/NavigationViewOwnStyle"
             app:menu="@menu/club_navigation" />
-
-
     </RelativeLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
@@ -40,6 +38,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="@color/colorgrey"
         app:headerLayout="@layout/nav_header_club_main"
         app:itemTextAppearance="@style/NavigationViewOwnStyle"
         app:itemIconTint="@color/colorpink"

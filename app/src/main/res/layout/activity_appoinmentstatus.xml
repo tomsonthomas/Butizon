@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="#EFEFEF"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Shop:"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/baskvill"
+            android:textColor="@color/black"/>
+        <Spinner
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:background="@color/colorgrey"
+            android:id="@+id/shopchoose">
+
+        </Spinner>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Service:"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/baskvill"
+            android:textColor="@color/black"/>
+        <Spinner
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:background="@color/colorgrey"
+            android:id="@+id/servicechoose">
+
+        </Spinner>
+
+    </LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        tools:ignore="MissingConstraints">
+
+        <HorizontalScrollView
+            android:id="@+id/layoutSeat"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+    </ScrollView>
+
+</LinearLayout>
