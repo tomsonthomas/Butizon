@@ -2,6 +2,7 @@ package com.venturetech.venture.butizon.UserLogin;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -40,7 +41,6 @@ import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -59,11 +59,15 @@ public class SingleItemView extends AppCompatActivity {
     String timestamp;
     String employeeid,feed;
     String timeformated;
+    String dayofweek;
     TextView servicename,name,address,timing,rate,booknow,viewfeedback,sendfeedback;
     ArrayList<Shop_Service_Details> data = new ArrayList<Shop_Service_Details>();
     ArrayList<Model_shedule> schedule = new ArrayList<Model_shedule>();
+    ArrayList<Model_shedule> schedule1 = new ArrayList<Model_shedule>();
     private String day1;
     ArrayList<FeedbackListt> feedbackListts;
+    String[] days = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -232,6 +236,8 @@ public class SingleItemView extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     try {
+                        String day=dayofweek;
+                        //schedule1 =DBTransactionFunctions.getSheduleDataByIdAndDay(shopid,day);
                          ArrayList<String> list= getHour_Minute_AMPM(schedule.get(0).getOptime());
                         Calendar calendar1 = Calendar.getInstance();
                         calendar1.set(Calendar.HOUR, Integer.parseInt(list.get(0)));
@@ -242,7 +248,7 @@ public class SingleItemView extends AppCompatActivity {
                         else
                             calendar1.set(Calendar.AM_PM,Calendar.PM);
                         //Date time1 = new SimpleDateFormat("dd/MM/yyyy HH:mm a").parse(string1);
-                     //   Calendar calendar1 = Calendar.getInstance();
+                       // Calendar calendar1 = Calendar.getInstance();
                       //  calendar1.setTime(time1);
                         ArrayList<String> list1= getHour_Minute_AMPM(schedule.get(0).getCltime());
                         Calendar calendar2 = Calendar.getInstance();
@@ -261,14 +267,17 @@ public class SingleItemView extends AppCompatActivity {
                         calendar3.set(Calendar.MINUTE, Integer.parseInt(list3.get(1)));
                         calendar3.set(Calendar.SECOND, 00);
                         if(list3.get(2).equals("AM"))
-                            calendar2.set(Calendar.AM_PM,Calendar.AM);
+                            calendar3.set(Calendar.AM_PM,Calendar.AM);
                         else
-                            calendar2.set(Calendar.AM_PM,Calendar.PM);
+                            calendar3.set(Calendar.AM_PM,Calendar.PM);
 
-                     Date x = calendar3.getTime();
-                     Date x1 = calendar1.getTime();
-                     Date x2 = calendar2.getTime();
-                       if (x.after(calendar1.getTime()) && x.before(calendar2.getTime())) {
+                     long x = calendar3.getTimeInMillis();
+                        long x1 = calendar1.getTimeInMillis();
+                        long x2 = calendar2.getTimeInMillis();
+                       if (x>x1 && x<x2) {
+                           final ProgressDialog progressDialog=new ProgressDialog(SingleItemView.this);
+                           progressDialog.setMessage("Please Wait...");
+                           progressDialog.show();
 //                ContentValues cv = new ContentValues();
 //                cv.put("userid",DBTransactionFunctions.getConfigvalue("userid"));
 //                cv.put("shopid",data.get(0).getId());
@@ -296,6 +305,7 @@ public class SingleItemView extends AppCompatActivity {
                         public void onResponse(Call<Appoinmentbook> call, Response<Appoinmentbook> response) {
                             Toast.makeText(getApplicationContext(), "Appoinment Submitted,Waiting for Conformation", Toast.LENGTH_LONG).show();
                             dialog.cancel();
+                            progressDialog.cancel();
                             setAppoinment();
                             finish();
 
@@ -303,7 +313,7 @@ public class SingleItemView extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<Appoinmentbook> call, Throwable t) {
-
+                            progressDialog.cancel();
                         }
                     });
                      }else{
@@ -332,6 +342,8 @@ public class SingleItemView extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
 
     public  String getDayOfWeek(){
         Calendar calendar = Calendar.getInstance();
@@ -383,9 +395,12 @@ public class SingleItemView extends AppCompatActivity {
                         String  formated_time = sdf.format(date.getTime());
                          timeformated = sdf1.format(date.getTime());
                         timestamp=formated_time;
+
+
                         textView.setText(timestamp);
                     }
                 }, currentDate.get(Calendar.HOUR_OF_DAY), currentDate.get(Calendar.MINUTE), false).show();
+
             }
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE)).show();
     }

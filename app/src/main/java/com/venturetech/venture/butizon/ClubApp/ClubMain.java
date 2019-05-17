@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -53,6 +54,7 @@ import com.venturetech.venture.butizon.Fragments.Club.EditEmployee;
 import com.venturetech.venture.butizon.Fragments.Club.EditService;
 import com.venturetech.venture.butizon.Fragments.Club.ViewFeedBack;
 import com.venturetech.venture.butizon.R;
+import com.venturetech.venture.butizon.Utilities.Consatnts;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
 public class ClubMain extends AppCompatActivity
@@ -86,6 +88,8 @@ public class ClubMain extends AppCompatActivity
         setContentView(R.layout.activity_club_main);
         checkRunTimePermission();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation1);
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
+        layoutParams.setBehavior(new Consatnts.BottomNavigationViewBehavior());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setItemIconTintList(ColorStateList2);
         navigation.setItemTextColor(ColorStateList2);

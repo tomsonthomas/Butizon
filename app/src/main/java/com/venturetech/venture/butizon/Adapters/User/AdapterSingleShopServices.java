@@ -2,6 +2,7 @@ package com.venturetech.venture.butizon.Adapters.User;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,6 +32,7 @@ import android.widget.Toast;
 import com.venturetech.venture.butizon.ClubApp.Register;
 import com.venturetech.venture.butizon.Model.Employee;
 import com.venturetech.venture.butizon.Model.Model_Employee_Service;
+import com.venturetech.venture.butizon.Model.Model_shedule;
 import com.venturetech.venture.butizon.Model.Shop_Service_Details;
 import com.venturetech.venture.butizon.Model.UserApp.Appoinmentbook;
 import com.venturetech.venture.butizon.R;
@@ -62,6 +64,7 @@ public class AdapterSingleShopServices extends RecyclerView.Adapter<AdapterSingl
     TextView textView, save, cancel;
     Spinner spinner;
     ArrayList<Shop_Service_Details> data1 = new ArrayList<Shop_Service_Details>();
+    private String timeformated;
 
     public AdapterSingleShopServices(Context con, ArrayList<Model_Employee_Service> services, String id) {
     this.context  =con;
@@ -159,7 +162,49 @@ try {
                     save.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            String day = Consatnts.getDayOfWeek();
+                            final ArrayList<Model_shedule> schedule = DBTransactionFunctions.getSheduleDataByIdAndDay(ShopId, day);
+                            ArrayList<String> list= Consatnts.getHour_Minute_AMPM(schedule.get(0).getOptime());
+                            Calendar calendar1 = Calendar.getInstance();
+                            calendar1.set(Calendar.HOUR, Integer.parseInt(list.get(0)));
+                            calendar1.set(Calendar.MINUTE, Integer.parseInt(list.get(1)));
+                            calendar1.set(Calendar.SECOND, 00);
+                            if(list.get(2).equals("AM"))
+                                calendar1.set(Calendar.AM_PM,Calendar.AM);
+                            else
+                                calendar1.set(Calendar.AM_PM,Calendar.PM);
+                            //Date time1 = new SimpleDateFormat("dd/MM/yyyy HH:mm a").parse(string1);
+                            // Calendar calendar1 = Calendar.getInstance();
+                            //  calendar1.setTime(time1);
+                            ArrayList<String> list1= Consatnts.getHour_Minute_AMPM(schedule.get(0).getCltime());
+                            Calendar calendar2 = Calendar.getInstance();
+                            calendar2.set(Calendar.HOUR, Integer.parseInt(list1.get(0)));
+                            calendar2.set(Calendar.MINUTE, Integer.parseInt(list1.get(1)));
+                            calendar2.set(Calendar.SECOND, 00);
+                            if(list1.get(2).equals("AM"))
+                                calendar2.set(Calendar.AM_PM,Calendar.AM);
+                            else
+                                calendar2.set(Calendar.AM_PM,Calendar.PM);
 
+
+                            Calendar calendar3 = Calendar.getInstance();
+                            ArrayList<String> list3=Consatnts.getHour_Minute_AMPM(timeformated);
+                            calendar3.set(Calendar.HOUR, Integer.parseInt(list3.get(0)));
+                            calendar3.set(Calendar.MINUTE, Integer.parseInt(list3.get(1)));
+                            calendar3.set(Calendar.SECOND, 00);
+                            if(list3.get(2).equals("AM"))
+                                calendar3.set(Calendar.AM_PM,Calendar.AM);
+                            else
+                                calendar3.set(Calendar.AM_PM,Calendar.PM);
+
+                            long x = calendar3.getTimeInMillis();
+                            long x1 = calendar1.getTimeInMillis();
+                            long x2 = calendar2.getTimeInMillis();
+                            if (x>x1 && x<x2) {
+                                final ProgressDialog progressDialog = new ProgressDialog(context);
+                                progressDialog.setMessage("Please Wait...");
+                                progressDialog.show();
+//
 /*
                 ContentValues cv = new ContentValues();
                 cv.put("userid",DBTransactionFunctions.getConfigvalue("userid"));
@@ -173,32 +218,33 @@ try {
                 Toast.makeText(SingleItemView.this,"Appoinment Submitted,Waiting for Conformation",Toast.LENGTH_LONG).show();
                 dialog.cancel();
                 finish();*/
-                            HashMap<String, String> hashMap = new HashMap<>();
-                            hashMap.put("user_id", DBTransactionFunctions.getConfigvalue("userid"));
-                            hashMap.put("shop_id", ShopId);
-                            hashMap.put("service_id", data.get(i).getServiceId());
-                            hashMap.put("emp_id", employeeid);
-                            hashMap.put("app_time", textView.getText().toString());
-                            hashMap.put("updated_time", String.valueOf(System.currentTimeMillis()));
-                            hashMap.put("status", "0");
-                            final RetroInterface retro = RetrofitInstance.getRetrofitInstance().create(RetroInterface.class);
-                            retro.book_apmnt(hashMap).enqueue(new Callback<Appoinmentbook>() {
-                                @Override
-                                public void onResponse(Call<Appoinmentbook> call, Response<Appoinmentbook> response) {
-                                    Toast.makeText(context, "Appointment Submitted,Waiting for Confirmation", Toast.LENGTH_LONG).show();
-                                    dialog.cancel();
-                                    setAppoinment();
+                                HashMap<String, String> hashMap = new HashMap<>();
+                                hashMap.put("user_id", DBTransactionFunctions.getConfigvalue("userid"));
+                                hashMap.put("shop_id", ShopId);
+                                hashMap.put("service_id", data.get(i).getServiceId());
+                                hashMap.put("emp_id", employeeid);
+                                hashMap.put("app_time", textView.getText().toString());
+                                hashMap.put("updated_time", String.valueOf(System.currentTimeMillis()));
+                                hashMap.put("status", "0");
+                                final RetroInterface retro = RetrofitInstance.getRetrofitInstance().create(RetroInterface.class);
+                                retro.book_apmnt(hashMap).enqueue(new Callback<Appoinmentbook>() {
+                                    @Override
+                                    public void onResponse(Call<Appoinmentbook> call, Response<Appoinmentbook> response) {
+                                        Toast.makeText(context, "Appointment Submitted,Waiting for Confirmation", Toast.LENGTH_LONG).show();
+                                        dialog.cancel();
+                                        setAppoinment();
 
-                                }
+                                    }
 
-                                @Override
-                                public void onFailure(Call<Appoinmentbook> call, Throwable t) {
+                                    @Override
+                                    public void onFailure(Call<Appoinmentbook> call, Throwable t) {
 
-                                }
-                            });
+                                    }
+                                });
 
-
-                        }
+                            }else{
+                                Toast.makeText(context, "Sorry ,Shop timing from: "+schedule.get(0).getOptime()+" to "+schedule.get(0).getCltime(), Toast.LENGTH_LONG).show();
+                            }                        }
                     });
                     cancel.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -264,8 +310,11 @@ else
                         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
                         String  formated_time = sdf.format(date.getTime());
                         textView.setText(formated_time);
+                        String myFormat1 = "hh:mm a"; // your own format
+                        SimpleDateFormat sdf1 = new SimpleDateFormat(myFormat1, Locale.US);
+                        timeformated = sdf1.format(date.getTime());
                     }
-                }, currentDate.get(Calendar.HOUR_OF_DAY), currentDate.get(Calendar.MINUTE), false).show();
+                },currentDate.get(Calendar.HOUR_OF_DAY), currentDate.get(Calendar.MINUTE), false).show();
             }
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE)).show();
     }

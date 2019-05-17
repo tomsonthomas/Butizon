@@ -7,38 +7,26 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.daimajia.slider.library.SliderLayout;
-import com.venturetech.venture.butizon.ClubApp.ClubLogin;
 import com.venturetech.venture.butizon.ClubApp.Register;
 import com.venturetech.venture.butizon.Fragments.User.BookingHistory;
 import com.venturetech.venture.butizon.Fragments.User.Home;
 import com.venturetech.venture.butizon.Fragments.User.ViewUser;
 import com.venturetech.venture.butizon.R;
+import com.venturetech.venture.butizon.Utilities.Consatnts;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
 
 public class UserActivity extends AppCompatActivity {
     private ActionBar toolbar;
@@ -62,6 +50,8 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
+        layoutParams.setBehavior(new Consatnts.BottomNavigationViewBehavior());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setItemIconTintList(ColorStateList1);
         navigation.setItemTextColor(ColorStateList1);

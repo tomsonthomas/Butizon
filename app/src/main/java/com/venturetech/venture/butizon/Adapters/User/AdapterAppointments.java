@@ -46,7 +46,7 @@ public class AdapterAppointments extends RecyclerView.Adapter<AdapterAppointment
             myHolder.cancel.setVisibility(View.GONE);
             return;
         }
-        if(i%2==0){
+
             Bitmap mbitmap = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.tc)).getBitmap();
             Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
             Canvas canvas = new Canvas(imageRounded);
@@ -55,7 +55,7 @@ public class AdapterAppointments extends RecyclerView.Adapter<AdapterAppointment
             mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
             canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
             myHolder.image.setImageBitmap(imageRounded);
-        }
+
        myHolder.service.setText(appointments.get(i).getService_name());
         if(appointments.get(i).getStatus().equals("1")){
             myHolder.cancel.setText("Status: Appointment Approved");

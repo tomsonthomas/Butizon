@@ -29,7 +29,8 @@
             app:itemIconTint="@color/colortruewhite"
             app:itemTextColor="@color/colortruewhite"
             android:theme="@style/Widget.BottomNavigationView"
-            app:itemTextAppearanceActive="@style/NavigationViewOwnStyle" app:menu="@menu/club_navigation" />
+            app:itemTextAppearanceActive="@style/NavigationViewOwnStyle"
+            app:menu="@menu/club_navigation" />
 
 
     </RelativeLayout>
