@@ -139,12 +139,6 @@ public class SingleItemView extends AppCompatActivity {
                         progressDialog.setMessage("Please Wait...");
                         progressDialog.show();
                         HashMap<String,String>hashMap=new HashMap<>();
-//                        ContentValues cv = new ContentValues();
-//                        cv.put("userid",DBTransactionFunctions.getConfigvalue("userid"));
-//                        cv.put("shopid",data.get(0).getId());
-//                        cv.put("message",feed);
-//                        cv.put("status","0");
-//                        DBTransactionFunctions.DB_InsertRow("tb_feedback",cv);
                         hashMap.put("user_id",DBTransactionFunctions.getConfigvalue("userid"));
                         hashMap.put("shop_id",data.get(0).getId());
                         hashMap.put("service_id",data.get(0).getId_Service());

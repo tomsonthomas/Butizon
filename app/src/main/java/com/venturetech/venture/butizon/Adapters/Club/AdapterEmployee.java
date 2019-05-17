@@ -1,7 +1,6 @@
 package com.venturetech.venture.butizon.Adapters.Club;
 
 import android.app.Dialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -15,9 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.venturetech.venture.butizon.Fragments.Club.EditEmployee;
 import com.venturetech.venture.butizon.Model.Employee;
 import com.venturetech.venture.butizon.Model.Services;
 import com.venturetech.venture.butizon.R;
@@ -119,7 +116,6 @@ try {
                 service_id.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        //Toast.makeText(context, updatedservice.get(position).getId(), Toast.LENGTH_SHORT).show();
                          shop_ser_id = updatedservice.get(position).getId();
 
                     }

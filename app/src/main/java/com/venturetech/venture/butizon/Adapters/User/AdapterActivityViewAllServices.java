@@ -201,18 +201,6 @@ myHolder.layout.
                                 final ProgressDialog progressDialog = new ProgressDialog(context);
                                 progressDialog.setMessage("Please Wait...");
                                 progressDialog.show();
-//
-//                        ContentValues cv = new ContentValues();
-//                        cv.put("userid",DBTransactionFunctions.getConfigvalue("userid"));
-//                        cv.put("shopid",shop_service_details.get(0).getId());
-//                        cv.put("service_id",shop_service_details.get(0).getId_Service());
-//                        cv.put("empid",employeeid);
-//                        cv.put("appoinmenttime",textView.getText().toString());
-//                        cv.put("updatedtime",System.currentTimeMillis());
-//                        cv.put("status","0");
-//                        DBTransactionFunctions.DB_InsertRow("tb_appoinments",cv);
-//                        Toast.makeText(context,"Appoinment Submitted,Waiting for Conformation",Toast.LENGTH_LONG).show();
-//                        dialog.cancel();
 
                                 HashMap<String, String> hashMap = new HashMap<>();
                                 hashMap.put("user_id", DBTransactionFunctions.getConfigvalue("userid"));

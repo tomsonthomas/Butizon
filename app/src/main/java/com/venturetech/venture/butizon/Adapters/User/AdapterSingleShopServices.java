@@ -173,9 +173,7 @@ try {
                                 calendar1.set(Calendar.AM_PM,Calendar.AM);
                             else
                                 calendar1.set(Calendar.AM_PM,Calendar.PM);
-                            //Date time1 = new SimpleDateFormat("dd/MM/yyyy HH:mm a").parse(string1);
-                            // Calendar calendar1 = Calendar.getInstance();
-                            //  calendar1.setTime(time1);
+
                             ArrayList<String> list1= Consatnts.getHour_Minute_AMPM(schedule.get(0).getCltime());
                             Calendar calendar2 = Calendar.getInstance();
                             calendar2.set(Calendar.HOUR, Integer.parseInt(list1.get(0)));
@@ -204,20 +202,6 @@ try {
                                 final ProgressDialog progressDialog = new ProgressDialog(context);
                                 progressDialog.setMessage("Please Wait...");
                                 progressDialog.show();
-//
-/*
-                ContentValues cv = new ContentValues();
-                cv.put("userid",DBTransactionFunctions.getConfigvalue("userid"));
-                cv.put("shopid",data.get(0).getId());
-                cv.put("service_id",data.get(0).getId_Service());
-                cv.put("empid",employeeid);
-                cv.put("appoinmenttime",textView.getText().toString());
-                cv.put("updatedtime",System.currentTimeMillis());
-                cv.put("status","0");
-                DBTransactionFunctions.DB_InsertRow("tb_appoinments",cv);
-                Toast.makeText(SingleItemView.this,"Appoinment Submitted,Waiting for Conformation",Toast.LENGTH_LONG).show();
-                dialog.cancel();
-                finish();*/
                                 HashMap<String, String> hashMap = new HashMap<>();
                                 hashMap.put("user_id", DBTransactionFunctions.getConfigvalue("userid"));
                                 hashMap.put("shop_id", ShopId);

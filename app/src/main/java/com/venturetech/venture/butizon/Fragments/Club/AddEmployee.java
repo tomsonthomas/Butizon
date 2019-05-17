@@ -1,6 +1,5 @@
 package com.venturetech.venture.butizon.Fragments.Club;
 
-import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,7 +22,6 @@ import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class AddEmployee extends Fragment implements AdapterView.OnItemSelectedListener {
     ArrayList<Services> services;
@@ -67,16 +65,6 @@ public class AddEmployee extends Fragment implements AdapterView.OnItemSelectedL
                     empl_phone.setError("Invalid Phone number");
                     return;
                 }
-//                ContentValues cv=new ContentValues();
-//                cv.put("shopid",DBTransactionFunctions.getConfigvalue("userid"));
-//                cv.put("serviceid",shop_ser_id);
-//                cv.put("emp_name",shop_emp_name);
-//                cv.put("phonenumber",Shop_emp_phone);
-//                cv.put("updatedtime",System.currentTimeMillis());
-//                DBTransactionFunctions.DB_InsertRow("tb_employee",cv);
-//                empl_name.setText("");
-//                empl_phone.setText("");
-//                Toast.makeText(getActivity(),"Employee Added",Toast.LENGTH_LONG).show();
 
                 HashMap<String,String> hashMap=new HashMap<>();
                 hashMap.put("shop_id",DBTransactionFunctions.getConfigvalue("userid"));
