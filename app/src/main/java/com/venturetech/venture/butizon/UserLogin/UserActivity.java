@@ -82,7 +82,6 @@ public class UserActivity extends AppCompatActivity {
 
         final AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle("Confirm Exit..!!!");
-        adb.setIcon(R.drawable.login);
         adb.setMessage("Are you sure,You want to exit");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

@@ -1,5 +1,6 @@
 package com.venturetech.venture.butizon.Adapters.Club;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -72,7 +73,9 @@ public class AdapterBookings extends RecyclerView.Adapter<AdapterBookings.MyHold
         myHolder.cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                final ProgressDialog progressDialog= new ProgressDialog(context);
+                progressDialog.setMessage("Please Wait....");
+                progressDialog.show();
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("id",appointments.get(i).getAppointid());
                 hashMap.put("user_id",DBTransactionFunctions.getConfigvalue("userid"));
@@ -89,6 +92,7 @@ public class AdapterBookings extends RecyclerView.Adapter<AdapterBookings.MyHold
                         Toast.makeText(context,"Appointment Cancelled",Toast.LENGTH_LONG).show();
                         myHolder.cancel.setText("Appointment Cancelled");
                         myHolder.approve.setVisibility(View.GONE);
+                        progressDialog.cancel();
 
                         setAppoinment();
 
@@ -96,7 +100,7 @@ public class AdapterBookings extends RecyclerView.Adapter<AdapterBookings.MyHold
 
                     @Override
                     public void onFailure(Call<UserUpdate> call, Throwable t) {
-
+                        progressDialog.cancel();
                     }
                 });
 
@@ -106,6 +110,9 @@ public class AdapterBookings extends RecyclerView.Adapter<AdapterBookings.MyHold
         myHolder.approve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final ProgressDialog progressDialog= new ProgressDialog(context);
+                progressDialog.setMessage("Please Wait....");
+                progressDialog.show();
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("id",appointments.get(i).getAppointid());
                 hashMap.put("user_id",appointments.get( i ).getUserid());
@@ -127,12 +134,13 @@ public class AdapterBookings extends RecyclerView.Adapter<AdapterBookings.MyHold
                         myHolder.approve.setText("Appointment Approved");
                         myHolder.cancel.setVisibility(View.GONE);
                         setAppoinment();
+                        progressDialog.cancel();
 
                     }
 
                     @Override
                     public void onFailure(Call<UserUpdate> call, Throwable t) {
-
+progressDialog.cancel();
                     }
                 });
             }
