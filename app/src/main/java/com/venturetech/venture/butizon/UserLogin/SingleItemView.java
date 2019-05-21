@@ -393,8 +393,6 @@ public class SingleItemView extends AppCompatActivity {
                         String  formated_time = sdf.format(date.getTime());
                          timeformated = sdf1.format(date.getTime());
                         timestamp=formated_time;
-
-
                         textView.setText(timestamp);
                     }
                 }, currentDate.get(Calendar.HOUR_OF_DAY), currentDate.get(Calendar.MINUTE), false).show();

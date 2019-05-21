@@ -21,8 +21,11 @@ import com.venturetech.venture.butizon.Utilities.RetrofitService.RetroInterface;
 import com.venturetech.venture.butizon.Utilities.RetrofitService.RetrofitInstance;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,6 +58,10 @@ public class AdapterBookings extends RecyclerView.Adapter<AdapterBookings.MyHold
             myHolder.approve.setVisibility(View.GONE);
             return;
         }
+        String myFormat = "dd/MM/yy"; // your own format
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        String  formated_time = sdf.format(calendar.getTime());
 
         myHolder.service.setText(appointments.get(i).getServiceName());
         myHolder.name.setText(appointments.get(i).getName());
@@ -69,6 +76,12 @@ public class AdapterBookings extends RecyclerView.Adapter<AdapterBookings.MyHold
             myHolder.approve.setText("Appointment Approved");
             myHolder.approve.setEnabled(false);
             myHolder.cancel.setVisibility(View.GONE);
+        }else if(appointments.get(i).getStatus().equals("0")){
+            myHolder.approve.setText("Accept");
+            myHolder.cancel.setEnabled(true);
+            myHolder.approve.setEnabled(true);
+            myHolder.approve.setVisibility(View.VISIBLE);
+            myHolder.cancel.setVisibility(View.VISIBLE);
         }
         myHolder.cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,7 +199,7 @@ progressDialog.cancel();
 
     public class MyHolder extends RecyclerView.ViewHolder {
         ImageView image;
-        TextView service,name,phone,date,employee,cancel,update,approve;
+        TextView service,name,phone,date,employee,cancel,update,approve,dateandtime;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
@@ -211,10 +224,24 @@ progressDialog.cancel();
             Toast.makeText(context, "Message Sent",
                     Toast.LENGTH_LONG).show();
         } catch (Exception ex) {
-            Toast.makeText(context,ex.getMessage().toString(),
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(context,ex.getMessage().toString(),Toast.LENGTH_LONG).show();
             ex.printStackTrace();
         }
+    }
+
+
+    public String getdate(String time){
+        String list="";
+        try{
+
+            String[] time1 = time.split ( " " );
+            String hour =  time1[0].trim();
+            String min =  time1[1].trim();
+            String  am = time1[2].trim();
+        }catch (Exception e){
+
+        }
+        return list;
     }
 
 }

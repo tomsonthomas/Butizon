@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import com.venturetech.venture.butizon.Adapters.User.AdapterAppointments;
 import com.venturetech.venture.butizon.Model.Model_Appointments;
@@ -36,9 +35,7 @@ public class BookingHistory extends Fragment {
         editText = view.findViewById(R.id.search_service);
         appointments =new ArrayList<Model_Appointments>();
         appointments = DBTransactionFunctions.getAppoinments();
-
         //adapter used to show the appoinments or history
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         AdapterAppointments adapterAppointments =new AdapterAppointments(getActivity(),appointments);

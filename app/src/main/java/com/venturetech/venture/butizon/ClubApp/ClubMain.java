@@ -52,6 +52,7 @@ import com.venturetech.venture.butizon.Fragments.Club.Bookings;
 import com.venturetech.venture.butizon.Fragments.Club.EditClub;
 import com.venturetech.venture.butizon.Fragments.Club.EditEmployee;
 import com.venturetech.venture.butizon.Fragments.Club.EditService;
+import com.venturetech.venture.butizon.Fragments.Club.TodaysSchedule;
 import com.venturetech.venture.butizon.Fragments.Club.ViewFeedBack;
 import com.venturetech.venture.butizon.R;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
@@ -297,6 +298,10 @@ public class ClubMain extends AppCompatActivity
                     fm =  AddEmployee.newInstance();
                 commitFragment(fm);
                 break;
+                case 10:
+                    fm =  TodaysSchedule.newInstance();
+                commitFragment(fm);
+                break;
         }
     }
 
@@ -355,6 +360,10 @@ public class ClubMain extends AppCompatActivity
             switch (item.getItemId()) {
                 case R.id.navigation_club:
                     setPage( 0 );
+                    return true;
+                case R.id.navigation_schedule:
+
+                    setPage( 10 );
                     return true;
                 case R.id.navigation_feedback:
 

@@ -7,6 +7,11 @@
         android:icon="@drawable/outline_home"
         android:title="Home"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/schedule"
+        android:title="Today's"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/navigation_feedback"
@@ -14,11 +19,7 @@
         android:title="Feedback"
         app:showAsAction="always"/>
 
-    <!--<item-->
-    <!--android:id="@+id/navigation_cart"-->
-    <!--android:icon="@drawable/outline_near_me"-->
-    <!--android:title="Near by"-->
-    <!--app:showAsAction="always"/>-->
+
 
     <item
         android:id="@+id/navigation_clubprofile"

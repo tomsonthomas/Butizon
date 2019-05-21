@@ -20,7 +20,10 @@ import com.venturetech.venture.butizon.Model.UserModel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class DBTransactionFunctions {
 	private Context context;
@@ -1174,4 +1177,46 @@ return nearclubdata;
 		String addres=result.responsedata.get( 0 ).data.get( "p_image" );
 		return addres;
 	}
+
+
+    public static ArrayList<ModelClubAppointments> getTodaysAppoinment() {
+		ArrayList<ModelClubAppointments> listdata = new ArrayList<ModelClubAppointments>();
+		DBResponseDataTypes.ReadResponse result;
+
+		try {
+			String myFormat = "dd/MM/yy"; // your own format
+			Calendar calendar = Calendar.getInstance();
+			SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+			String  formated_time = sdf.format(calendar.getTime())+"%";
+			String Sql="select tb_appoinments.id as id,tb_appoinments.shopid as shopid,tb_appoinments.userid as userid,tb_appoinments.status as status," +
+					"tb_appoinments.appoinmenttime as appoinmenttime," +
+					"tb_shop_service.id as serid,tb_shop_service.service_name as service_name,tb_shop_service.rate as rate,tb_employee.id as empid," +
+					"tb_employee.emp_name as emp_name,tb_employee.phonenumber as phonenumber ,tb_user.name as name,tb_user.mobile as mobile,tb_user.address as address,tb_user.email as email," +
+					"tb_user.gender  as gender from tb_appoinments INNER JOIN (tb_shop_service INNER JOIN tb_employee ON tb_employee.serviceid=tb_shop_service.id) ON tb_appoinments.service_id=tb_shop_service.id join tb_user on tb_user.id=tb_appoinments.userid where tb_appoinments.appoinmenttime like '"+formated_time+"' and tb_appoinments.shopid='"+DBTransactionFunctions.getConfigvalue("userid")+ "' and tb_appoinments.status=1 group by tb_appoinments.id";
+			result = DB_ReadRowquery(Sql);
+			if (result.count>0){
+				for(int i =0;i<result.responsedata.size();i++) {
+					listdata.add(new ModelClubAppointments(result.responsedata.get(i).data.get("id"),
+							result.responsedata.get(i).data.get("shopid"),
+							result.responsedata.get(i).data.get("userid"),
+							result.responsedata.get(i).data.get("status"),
+							result.responsedata.get(i).data.get("appoinmenttime"),
+							result.responsedata.get(i).data.get("serid"),
+							result.responsedata.get(i).data.get("service_name"),
+							result.responsedata.get(i).data.get("rate"),
+							result.responsedata.get(i).data.get("empid"),
+							result.responsedata.get(i).data.get("emp_name"),
+							result.responsedata.get(i).data.get("phonenumber"),
+							result.responsedata.get(i).data.get("name"),
+							result.responsedata.get(i).data.get("mobile"),
+							result.responsedata.get(i).data.get("address"),
+							result.responsedata.get(i).data.get("email"),
+							result.responsedata.get(i).data.get("gender")));
+				}
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return listdata;
+    }
 }

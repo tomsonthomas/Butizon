@@ -27,6 +27,7 @@ DBTransactionFunctions dbTransactionFunctions;
 
 
 
+
                                           if(isNetworkAvailable(Splash.this))
                                           {
                                               if(DBTransactionFunctions.getConfigvalue("inserterd").equals("1")){
@@ -76,10 +77,6 @@ DBTransactionFunctions dbTransactionFunctions;
 
 
                                           }
-
-
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
