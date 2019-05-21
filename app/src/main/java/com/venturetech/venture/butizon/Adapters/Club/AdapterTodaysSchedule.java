@@ -52,8 +52,6 @@ import java.util.ArrayList;
 myHolder.approve.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-
-
         ////code here to send data to the server for notifiying the user about the waiting time.
     }
 });
