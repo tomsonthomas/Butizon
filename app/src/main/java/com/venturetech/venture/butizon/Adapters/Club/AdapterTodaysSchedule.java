@@ -19,7 +19,10 @@ import com.venturetech.venture.butizon.R;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
 
 import java.util.ArrayList;
-    public class AdapterTodaysSchedule extends RecyclerView.Adapter<com.venturetech.venture.butizon.Adapters.Club.AdapterTodaysSchedule.MyHolder> {
+
+
+
+public class AdapterTodaysSchedule extends RecyclerView.Adapter<com.venturetech.venture.butizon.Adapters.Club.AdapterTodaysSchedule.MyHolder> {
         Context context;
         ArrayList<ModelClubAppointments> appointments = new ArrayList<ModelClubAppointments>();
         public AdapterTodaysSchedule(FragmentActivity activity, ArrayList<ModelClubAppointments> appointments) {
@@ -43,7 +46,6 @@ import java.util.ArrayList;
                 return;
             }
 
-
             myHolder.service.setText(appointments.get(i).getServiceName());
             myHolder.name.setText(appointments.get(i).getName());
             myHolder.phone.setText(appointments.get(i).getMobile());
@@ -52,7 +54,9 @@ import java.util.ArrayList;
 myHolder.approve.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        ////code here to send data to the server for notifiying the user about the waiting time.
+        
+        ////code here to send data to the server for notifiying the
+        // user about the waiting time.
     }
 });
 
@@ -82,7 +86,6 @@ myHolder.approve.setOnClickListener(new View.OnClickListener() {
                 employee = itemView.findViewById(R.id.apemployee);
                 update = itemView.findViewById(R.id.apdate);
                 approve = itemView.findViewById(R.id.apapprove);
-
             }
         }
 
