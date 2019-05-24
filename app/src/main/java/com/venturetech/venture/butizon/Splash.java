@@ -3,6 +3,7 @@ package com.venturetech.venture.butizon;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
@@ -10,6 +11,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.venturetech.venture.butizon.ClubApp.ClubMain;
+import com.venturetech.venture.butizon.ForeGroundServices.CheckForAppointment;
+import com.venturetech.venture.butizon.ForeGroundServices.WaitingService;
 import com.venturetech.venture.butizon.StartActivity.Sliding;
 import com.venturetech.venture.butizon.UserLogin.UserActivity;
 import com.venturetech.venture.butizon.databases.DBTransactionFunctions;
@@ -23,6 +26,15 @@ DBTransactionFunctions dbTransactionFunctions;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_OVERSCAN, WindowManager.LayoutParams.FLAG_LAYOUT_IN_OVERSCAN);
         setContentView(R.layout.activity_splash);
+        Intent intentService = new Intent(getApplicationContext(), CheckForAppointment.class);
+        Intent intentService1 = new Intent(getApplicationContext(), WaitingService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(intentService);
+                startForegroundService(intentService1);
+            }else {
+                startService(intentService);
+                startService(intentService1);
+            }
         dbTransactionFunctions =new DBTransactionFunctions(getApplicationContext());
 
 

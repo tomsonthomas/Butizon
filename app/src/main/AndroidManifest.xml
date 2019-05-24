@@ -58,6 +58,16 @@
         <activity
             android:name=".UserLogin.ActivityViewAllServices"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <service android:name=".ForeGroundServices.CheckForAppointment"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":CheckForAppointment"
+            android:stopWithTask="false"/>
+        <service android:name=".ForeGroundServices.WaitingService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":WaitingService"
+            android:stopWithTask="false"/>
     </application>
 
 </manifest>

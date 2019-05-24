@@ -70,7 +70,8 @@ public class AdapterViewAllShops extends RecyclerView.Adapter<AdapterViewAllShop
             mpaint.setAntiAlias(true);
             mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
             canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
-            myHolder.imageView.setImageBitmap(imageRounded);        }
+            myHolder.imageView.setImageBitmap(imageRounded);
+        }
 
 
 myHolder.name.setText(shop_details.get(i).getName());
